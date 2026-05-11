@@ -34,7 +34,6 @@ export default function Navbar() {
           </ul>
 
           <div className="navbar-actions">
-            <a href="#cta" className="btn btn-ghost" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Join Event</a>
             <a href="#cta" className="btn btn-primary" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Get a Demo</a>
           </div>
         </div>
