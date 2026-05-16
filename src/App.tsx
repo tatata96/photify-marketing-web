@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
@@ -11,8 +11,22 @@ import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
+import StartForm from './components/StartForm'
+
+const getRoute = () => (window.location.hash.replace(/^#/, '') || '/')
 
 function App() {
+  const [route, setRoute] = useState<string>(getRoute())
+
+  useEffect(() => {
+    const onHashChange = () => {
+      setRoute(getRoute())
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -30,19 +44,27 @@ function App() {
     els.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
-  }, [])
+  }, [route])
+
+  const isStart = route === 'start' || route === '/start'
 
   return (
     <>
       <Navbar />
-      <Hero />
-      <Problem />
-      <Solution />
-      <HowItWorks />
-      <EventTypes />
-      <ForOrganizers />
-      <Privacy />
-      <CTA />
+      {isStart ? (
+        <StartForm />
+      ) : (
+        <>
+          <Hero />
+          <Problem />
+          <Solution />
+          <HowItWorks />
+          <EventTypes />
+          <ForOrganizers />
+          <Privacy />
+          <CTA />
+        </>
+      )}
       <Footer />
     </>
   )

@@ -14,7 +14,7 @@ const solutions = [
       </svg>
     ),
     title: 'QR Code Instant Access',
-    text: 'Guests simply scan a QR code displayed at the venue and join the event platform in seconds. No app download required, no lengthy registration — seamless from scan to gallery.',
+    text: 'Guests scan and join in seconds — no app download, no registration.',
   },
   {
     num: '02',
@@ -26,7 +26,7 @@ const solutions = [
       </svg>
     ),
     title: 'AI Face Recognition',
-    text: "Our AI automatically detects faces across all uploaded photos and creates personalized albums for each guest — so you only see photos of yourself, not everyone else's memories.",
+    text: 'AI detects faces and builds a personal album for each guest — only yours, not everyone else\'s.',
   },
   {
     num: '03',
@@ -36,7 +36,7 @@ const solutions = [
       </svg>
     ),
     title: 'Real-Time Delivery',
-    text: 'Photos are processed and delivered to each guest\'s personal album within seconds of upload. Guests can view and download their memories before they even leave the venue.',
+    text: 'Photos land in personal albums within seconds — guests download before leaving the venue.',
   },
   {
     num: '04',
@@ -47,7 +47,7 @@ const solutions = [
       </svg>
     ),
     title: 'Private & Personal',
-    text: "Each participant gets their own secure, private album visible only to them. GDPR-compliant by design — your face data is never stored longer than necessary and you're always in control.",
+    text: 'Each album is private and GDPR-compliant — face data is ephemeral, you stay in control.',
   },
 ]
 
@@ -59,7 +59,7 @@ export default function Solution() {
           <div className="section-label">The Solution</div>
           <h2 className="section-heading">Built for every photo,<br />personalized for you</h2>
           <p className="section-subtext">
-            Four technologies working in harmony to eliminate the friction between taking photos at an event and getting your personal memories delivered.
+            Four technologies that close the gap between the shutter and your album.
           </p>
         </div>
 

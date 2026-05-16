@@ -7,7 +7,7 @@ const problems = [
       </svg>
     ),
     title: 'Days to Weeks of Waiting',
-    text: 'Guests receive their event photos weeks after the event ends, losing the emotional moment.',
+    text: 'Photos arrive weeks late — long after the moment.',
   },
   {
     icon: (
@@ -18,7 +18,7 @@ const problems = [
       </svg>
     ),
     title: 'Manual Photo Chaos',
-    text: 'Organizers spend hours manually sorting hundreds of photos with no efficient workflow.',
+    text: 'Organizers sort hundreds of photos by hand — no real workflow.',
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const problems = [
       </svg>
     ),
     title: 'Scattered Sharing',
-    text: 'Photos get lost across WhatsApp groups, email threads, and cloud links nobody can find.',
+    text: 'Photos vanish across WhatsApp, email, and cloud links nobody can find.',
   },
   {
     icon: (
@@ -40,7 +40,7 @@ const problems = [
       </svg>
     ),
     title: 'Zero Personalization',
-    text: 'Everyone gets the same massive photo dump with no filtering by participant or face.',
+    text: 'Everyone gets the same dump — no filtering by face or participant.',
   },
 ]
 
@@ -52,7 +52,7 @@ export default function Problem() {
           <div className="section-label">The Problem</div>
           <h2 className="section-heading">Event Photos Are Broken</h2>
           <p className="section-subtext">
-            The event photography industry still runs on outdated processes that frustrate everyone involved — from guests waiting weeks to organizers drowning in logistics.
+            From guests waiting weeks to organizers drowning in logistics — the workflow is broken.
           </p>
         </div>
 

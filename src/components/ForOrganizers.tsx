@@ -19,7 +19,7 @@ export default function ForOrganizers() {
               Run Events,<br />Not Photo<br />Logistics.
             </h2>
             <p className="section-subtext">
-              Stop spending hours sorting photos and chasing guests with download links. Photify automates the entire workflow so you can focus on what matters.
+              Skip the sorting and the download-link chasing — Photify automates the whole workflow.
             </p>
             <div className="organizers-stat-row">
               <div>

@@ -19,8 +19,8 @@ export default function CTA() {
           </div>
 
           <div className="cta-right" data-reveal data-delay="2">
-            <button className="btn-cta-primary">Start for Free</button>
-            <button className="btn-cta-ghost">Schedule a Demo</button>
+            <a className="btn-cta-primary" href="#start">Start for Free</a>
+            <button type="button" className="btn-cta-ghost">Schedule a Demo</button>
           </div>
         </div>
       </div>
