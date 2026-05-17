@@ -42,7 +42,17 @@ const socials = [
 ]
 
 const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+    return
+  }
+  // Section isn't mounted — we're on a non-home route (e.g. /start).
+  // Navigate home, then jump to the section once it renders.
+  window.location.hash = ''
+  setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'auto' })
+  }, 60)
 }
 
 export default function Footer() {
