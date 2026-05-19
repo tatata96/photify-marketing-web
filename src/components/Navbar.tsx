@@ -14,7 +14,17 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      return
+    }
+    // Section isn't mounted — we're on a non-home route (e.g. /start).
+    // Navigate home, then jump to the section once it renders.
+    window.location.hash = ''
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'auto' })
+    }, 60)
   }
 
   return (
@@ -34,7 +44,6 @@ export default function Navbar() {
           </ul>
 
           <div className="navbar-actions">
-            <a href="#cta" className="btn btn-ghost" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Join Event</a>
             <a href="#cta" className="btn btn-primary" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Get a Demo</a>
           </div>
         </div>

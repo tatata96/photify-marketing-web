@@ -57,7 +57,7 @@ export default function EventTypes() {
           <div className="section-label">Solutions</div>
           <h2 className="section-heading">Built for every type of event</h2>
           <p className="section-subtext">
-            Whether it's an intimate wedding or a 10,000-person festival, Photify scales effortlessly to any size and format.
+            From an intimate wedding to a 10,000-person festival — Photify scales to fit.
           </p>
         </div>
 
