@@ -1,4 +1,6 @@
-const solutions = [
+import { useT } from '../i18n'
+
+const solutionKeys = [
   {
     num: '01',
     icon: (
@@ -13,8 +15,8 @@ const solutions = [
         <rect x="15.5" y="15.5" width="1.5" height="1.5" fill="currentColor"/>
       </svg>
     ),
-    title: 'QR Code Instant Access',
-    text: 'Guests scan and join in seconds — no app download, no registration.',
+    titleKey: 'solution.c1.title',
+    textKey: 'solution.c1.text',
   },
   {
     num: '02',
@@ -25,8 +27,8 @@ const solutions = [
         <path d="M17 3l2 2-2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'AI Face Recognition',
-    text: 'AI detects faces and builds a personal album for each guest — only yours, not everyone else\'s.',
+    titleKey: 'solution.c2.title',
+    textKey: 'solution.c2.text',
   },
   {
     num: '03',
@@ -35,8 +37,8 @@ const solutions = [
         <path d="M13 2L4.09 12.26a1 1 0 00.9 1.74H11l-1 8 8.91-10.26a1 1 0 00-.9-1.74H13l1-8z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Real-Time Delivery',
-    text: 'Photos land in personal albums within seconds — guests download before leaving the venue.',
+    titleKey: 'solution.c3.title',
+    textKey: 'solution.c3.text',
   },
   {
     num: '04',
@@ -46,30 +48,31 @@ const solutions = [
         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Private & Personal',
-    text: 'Each album is private and GDPR-compliant — face data is ephemeral, you stay in control.',
+    titleKey: 'solution.c4.title',
+    textKey: 'solution.c4.text',
   },
 ]
 
 export default function Solution() {
+  const { t } = useT()
   return (
     <section className="solution" id="solutions">
       <div className="container">
         <div className="solution-header" data-reveal>
-          <div className="section-label">The Solution</div>
-          <h2 className="section-heading">Built for every photo,<br />personalized for you</h2>
+          <div className="section-label">{t('solution.label')}</div>
+          <h2 className="section-heading">{t('solution.heading.l1')}<br />{t('solution.heading.l2')}</h2>
           <p className="section-subtext">
-            Four technologies that close the gap between the shutter and your album.
+            {t('solution.subtext')}
           </p>
         </div>
 
         <div className="solution-grid">
-          {solutions.map((s, i) => (
+          {solutionKeys.map((s, i) => (
             <div className="solution-card" key={i} data-reveal data-delay={String(i + 1)}>
               <div className="solution-card-num">{s.num}</div>
               <div className="solution-card-icon">{s.icon}</div>
-              <div className="solution-card-title">{s.title}</div>
-              <p className="solution-card-text">{s.text}</p>
+              <div className="solution-card-title">{t(s.titleKey)}</div>
+              <p className="solution-card-text">{t(s.textKey)}</p>
             </div>
           ))}
         </div>

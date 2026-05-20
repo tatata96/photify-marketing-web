@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useT } from '../i18n'
 
 const LogoMark = () => (
   <img src="/logo/logo.jpeg" alt="Photify" width="34" height="34" style={{ borderRadius: '8px', objectFit: 'cover' }} />
@@ -6,6 +7,7 @@ const LogoMark = () => (
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const { t, lang, setLang } = useT()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -27,6 +29,9 @@ export default function Navbar() {
     }, 60)
   }
 
+  const toggleLang = () => setLang(lang === 'en' ? 'tr' : 'en')
+  const otherLangLabel = lang === 'en' ? 'TR' : 'EN'
+
   return (
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container">
@@ -37,14 +42,22 @@ export default function Navbar() {
           </a>
 
           <ul className="navbar-nav">
-            <li><a href="#how-it-works" onClick={e => { e.preventDefault(); scrollTo('how-it-works') }}>How It Works</a></li>
-            <li><a href="#solutions" onClick={e => { e.preventDefault(); scrollTo('solutions') }}>Solutions</a></li>
-            <li><a href="#organizers" onClick={e => { e.preventDefault(); scrollTo('organizers') }}>For Organizers</a></li>
-            <li><a href="#privacy" onClick={e => { e.preventDefault(); scrollTo('privacy') }}>Privacy</a></li>
+            <li><a href="#how-it-works" onClick={e => { e.preventDefault(); scrollTo('how-it-works') }}>{t('nav.howItWorks')}</a></li>
+            <li><a href="#solutions" onClick={e => { e.preventDefault(); scrollTo('solutions') }}>{t('nav.solutions')}</a></li>
+            <li><a href="#organizers" onClick={e => { e.preventDefault(); scrollTo('organizers') }}>{t('nav.organizers')}</a></li>
+            <li><a href="#privacy" onClick={e => { e.preventDefault(); scrollTo('privacy') }}>{t('nav.privacy')}</a></li>
           </ul>
 
           <div className="navbar-actions">
-            <a href="#cta" className="btn btn-primary" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Get a Demo</a>
+            <button
+              type="button"
+              className="navbar-lang"
+              onClick={toggleLang}
+              aria-label={`Switch language to ${otherLangLabel}`}
+            >
+              {otherLangLabel}
+            </button>
+            <a href="#cta" className="btn btn-primary" onClick={e => { e.preventDefault(); scrollTo('cta') }}>{t('nav.getDemo')}</a>
           </div>
         </div>
       </div>

@@ -214,6 +214,23 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   padding: 9px 20px;
   font-size: 0.85rem;
 }
+.navbar-lang {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 7px 11px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+.navbar-lang:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
 
 /* ===================== HERO ===================== */
 .hero {
@@ -357,6 +374,23 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 24px 64px rgba(0,0,0,0.14);
+}
+.hero-img-slider {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-alt, #f4f4f4);
+}
+.hero-img-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.hero-img-slide.is-active {
+  opacity: 1;
 }
 .hero-img-badge {
   position: absolute;

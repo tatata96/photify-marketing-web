@@ -1,26 +1,29 @@
+import { useT } from '../i18n'
+
 export default function CTA() {
+  const { t } = useT()
   return (
     <section className="cta" id="cta">
       <div className="container">
         <div className="cta-inner">
           <div data-reveal>
             <h2 className="cta-headline">
-              Start Free.<br />
-              Deliver Magic.
+              {t('cta.headline.l1')}<br />
+              {t('cta.headline.l2')}
             </h2>
             <p className="cta-sub">
-              Join 500+ successful events. Up to 50 photos free. No credit card required.
+              {t('cta.sub')}
             </p>
             <div className="cta-perks">
-              <span className="cta-perk">No credit card</span>
-              <span className="cta-perk">Up to 50 photos free</span>
-              <span className="cta-perk">5-min setup</span>
+              <span className="cta-perk">{t('cta.perk1')}</span>
+              <span className="cta-perk">{t('cta.perk2')}</span>
+              <span className="cta-perk">{t('cta.perk3')}</span>
             </div>
           </div>
 
           <div className="cta-right" data-reveal data-delay="2">
-            <a className="btn-cta-primary" href="#start">Start for Free</a>
-            <button type="button" className="btn-cta-ghost">Schedule a Demo</button>
+            <a className="btn-cta-primary" href="#start">{t('cta.startFree')}</a>
+            <button type="button" className="btn-cta-ghost">{t('cta.scheduleDemo')}</button>
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
-const commitments = [
-  { icon: '🏗', title: 'Privacy by Design', text: 'Built into our architecture from day one.' },
-  { icon: '🔐', title: 'End-to-End Encryption', text: 'AES-256 in transit and at rest.' },
-  { icon: '👤', title: 'User-Controlled Access', text: 'Delete your data anytime with one tap.' },
-  { icon: '✋', title: 'Consent-First', text: 'No face data processed without explicit opt-in.' },
-  { icon: '🇪🇺', title: 'EU Data Residency', text: 'GDPR and Turkish KVKK compliant.' },
-  { icon: '🔍', title: 'Regular Audits', text: 'Independent third-party security reviews.' },
+import { useT } from '../i18n'
+
+const commitmentKeys = [
+  { icon: '🏗', titleKey: 'priv.c1.title', textKey: 'priv.c1.text' },
+  { icon: '🔐', titleKey: 'priv.c2.title', textKey: 'priv.c2.text' },
+  { icon: '👤', titleKey: 'priv.c3.title', textKey: 'priv.c3.text' },
+  { icon: '✋', titleKey: 'priv.c4.title', textKey: 'priv.c4.text' },
+  { icon: '🇪🇺', titleKey: 'priv.c5.title', textKey: 'priv.c5.text' },
+  { icon: '🔍', titleKey: 'priv.c6.title', textKey: 'priv.c6.text' },
 ]
 
 const documents = [
@@ -42,40 +44,41 @@ const DocIcon = () => (
 )
 
 export default function Privacy() {
+  const { t } = useT()
   return (
     <section className="privacy" id="privacy">
       <div className="container">
         <div className="privacy-header">
           <div data-reveal>
-            <div className="section-label">Privacy & Security</div>
+            <div className="section-label">{t('priv.label')}</div>
             <h2 className="section-heading">
-              Your Privacy is<br />Non-Negotiable.
+              {t('priv.heading.l1')}<br />{t('priv.heading.l2')}
             </h2>
             <div className="privacy-badge">
-              🛡 GDPR & KVKK Compliant
+              {t('priv.badge')}
             </div>
           </div>
           <div data-reveal data-delay="2">
             <p className="section-subtext" style={{ maxWidth: '100%' }}>
-              We process biometric data — faces. That means we hold ourselves to the highest standard, and face recognition data is processed ephemerally, never stored permanently.
+              {t('priv.subtext')}
             </p>
           </div>
         </div>
 
         <div className="privacy-grid">
-          {commitments.map((c, i) => (
+          {commitmentKeys.map((c, i) => (
             <div className="privacy-card" key={i} data-reveal data-delay={String(i + 1)}>
               <div className="privacy-card-icon">{c.icon}</div>
-              <div className="privacy-card-title">{c.title}</div>
-              <p className="privacy-card-text">{c.text}</p>
+              <div className="privacy-card-title">{t(c.titleKey)}</div>
+              <p className="privacy-card-text">{t(c.textKey)}</p>
             </div>
           ))}
         </div>
 
         <div className="privacy-docs" data-reveal>
           <div className="privacy-docs-header">
-            <div className="section-label">Yasal Belgeler</div>
-            <h3 className="privacy-docs-title">Sözleşmeler ve Politikalar</h3>
+            <div className="section-label">{t('priv.docs.label')}</div>
+            <h3 className="privacy-docs-title">{t('priv.docs.title')}</h3>
           </div>
           <ul className="privacy-docs-list">
             {documents.map((d) => (

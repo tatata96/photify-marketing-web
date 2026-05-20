@@ -1,3 +1,5 @@
+import { useT } from '../i18n'
+
 const LogoMark = () => (
   <img src="/logo/logo.jpeg" alt="Photify" width="28" height="28" style={{ borderRadius: '6px', objectFit: 'cover' }} />
 )
@@ -56,6 +58,7 @@ const scrollTo = (id: string) => {
 }
 
 export default function Footer() {
+  const { t } = useT()
   return (
     <footer className="footer">
       <div className="container">
@@ -67,34 +70,34 @@ export default function Footer() {
                 Photify
               </span>
             </div>
-            <p>AI-powered event photography that delivers every photo to the right person, instantly.</p>
+            <p>{t('footer.tagline')}</p>
             <div className="footer-contact">
               <a href="mailto:hello@photify.app">✉ hello@photify.app</a>
               <a href="tel:+902121234567">☎ +90 (212) 123 4567</a>
-              <a href="#">📍 Istanbul, Turkey</a>
+              <a href="#">{t('footer.location')}</a>
             </div>
           </div>
 
           <div>
-            <div className="footer-col-title">Product</div>
+            <div className="footer-col-title">{t('footer.col.product')}</div>
             <ul className="footer-links">
-              <li><a href="#how-it-works" onClick={e => { e.preventDefault(); scrollTo('how-it-works') }}>How It Works</a></li>
-              <li><a href="#solutions" onClick={e => { e.preventDefault(); scrollTo('solutions') }}>Solutions</a></li>
-              <li><a href="#event-types" onClick={e => { e.preventDefault(); scrollTo('event-types') }}>Event Types</a></li>
-              <li><a href="#organizers" onClick={e => { e.preventDefault(); scrollTo('organizers') }}>For Organizers</a></li>
+              <li><a href="#how-it-works" onClick={e => { e.preventDefault(); scrollTo('how-it-works') }}>{t('nav.howItWorks')}</a></li>
+              <li><a href="#solutions" onClick={e => { e.preventDefault(); scrollTo('solutions') }}>{t('nav.solutions')}</a></li>
+              <li><a href="#event-types" onClick={e => { e.preventDefault(); scrollTo('event-types') }}>{t('footer.link.eventTypes')}</a></li>
+              <li><a href="#organizers" onClick={e => { e.preventDefault(); scrollTo('organizers') }}>{t('nav.organizers')}</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="footer-col-title">Company</div>
+            <div className="footer-col-title">{t('footer.col.company')}</div>
             <ul className="footer-links">
-              <li><a href="#privacy" onClick={e => { e.preventDefault(); scrollTo('privacy') }}>Privacy</a></li>
-              <li><a href="#cta" onClick={e => { e.preventDefault(); scrollTo('cta') }}>Contact</a></li>
+              <li><a href="#privacy" onClick={e => { e.preventDefault(); scrollTo('privacy') }}>{t('nav.privacy')}</a></li>
+              <li><a href="#cta" onClick={e => { e.preventDefault(); scrollTo('cta') }}>{t('footer.link.contact')}</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="footer-col-title">Legal</div>
+            <div className="footer-col-title">{t('footer.col.legal')}</div>
             <ul className="footer-links">
               <li><a href="/legal/Photify_KVKK_GDPR_Aydinlatma_Metni_v2.2.pdf" download="Photify-Gizlilik-Politikasi.pdf" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a></li>
               <li><a href="/legal/Photify_Uyelik_Sozlesmesi_Kullanim_Kosullari_v1.2.pdf" download="Photify-Kullanim-Kosullari.pdf" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a></li>
@@ -105,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <div className="footer-copy">© 2026 Photify. All rights reserved.</div>
+          <div className="footer-copy">{t('footer.copy')}</div>
           <ul className="footer-social" aria-label="Social media">
             {socials.map(s => (
               <li key={s.name}>

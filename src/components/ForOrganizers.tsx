@@ -1,48 +1,51 @@
-const benefits = [
-  { icon: '⏱', title: 'Save 10+ Hours', text: 'Per event, zero manual photo sorting required.' },
-  { icon: '📈', title: '40% More Engagement', text: 'Guests interact more when they get personalized content.' },
-  { icon: '✨', title: 'Premium Experience', text: 'Elevate your events with a luxury photo delivery system.' },
-  { icon: '🔧', title: 'Zero Technical Setup', text: 'Ready in 5 minutes. No hardware, no app installs.' },
-  { icon: '📊', title: 'Analytics & Insights', text: 'Track engagement, downloads, and attendee behavior.' },
-  { icon: '🎯', title: 'Event-Day Support', text: 'Dedicated team on-call throughout your event.' },
+import { useT } from '../i18n'
+
+const benefitKeys = [
+  { icon: '⏱', titleKey: 'org.b1.title', textKey: 'org.b1.text' },
+  { icon: '📈', titleKey: 'org.b2.title', textKey: 'org.b2.text' },
+  { icon: '✨', titleKey: 'org.b3.title', textKey: 'org.b3.text' },
+  { icon: '🔧', titleKey: 'org.b4.title', textKey: 'org.b4.text' },
+  { icon: '📊', titleKey: 'org.b5.title', textKey: 'org.b5.text' },
+  { icon: '🎯', titleKey: 'org.b6.title', textKey: 'org.b6.text' },
 ]
 
 export default function ForOrganizers() {
+  const { t } = useT()
   return (
     <section className="organizers" id="organizers">
       <div className="organizers-bg-glow" />
       <div className="container">
         <div className="organizers-inner">
           <div className="organizers-left" data-reveal>
-            <div className="section-label">For Organizers</div>
+            <div className="section-label">{t('org.label')}</div>
             <h2 className="section-heading">
-              Run Events,<br />Not Photo<br />Logistics.
+              {t('org.heading.l1')}<br />{t('org.heading.l2')}<br />{t('org.heading.l3')}
             </h2>
             <p className="section-subtext">
-              Skip the sorting and the download-link chasing — Photify automates the whole workflow.
+              {t('org.subtext')}
             </p>
             <div className="organizers-stat-row">
               <div>
                 <div className="organizers-stat-value">10+</div>
-                <div className="organizers-stat-label">Hours saved per event</div>
+                <div className="organizers-stat-label">{t('org.stat.hours')}</div>
               </div>
               <div>
                 <div className="organizers-stat-value">40%</div>
-                <div className="organizers-stat-label">Engagement boost</div>
+                <div className="organizers-stat-label">{t('org.stat.engagement')}</div>
               </div>
               <div>
                 <div className="organizers-stat-value">5min</div>
-                <div className="organizers-stat-label">Setup time</div>
+                <div className="organizers-stat-label">{t('org.stat.setup')}</div>
               </div>
             </div>
           </div>
 
           <div className="organizers-benefits" data-reveal data-delay="2">
-            {benefits.map((b, i) => (
+            {benefitKeys.map((b, i) => (
               <div className="organizers-benefit" key={i}>
                 <div className="organizers-benefit-icon">{b.icon}</div>
-                <div className="organizers-benefit-title">{b.title}</div>
-                <p className="organizers-benefit-text">{b.text}</p>
+                <div className="organizers-benefit-title">{t(b.titleKey)}</div>
+                <p className="organizers-benefit-text">{t(b.textKey)}</p>
               </div>
             ))}
           </div>
