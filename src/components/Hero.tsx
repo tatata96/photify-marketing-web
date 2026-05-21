@@ -34,7 +34,7 @@ export default function Hero() {
               <button className="btn btn-primary" onClick={() => scrollTo('organizers')}>
                 {t('hero.cta.organizers')}
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               <button className="btn btn-ghost" onClick={() => scrollTo('how-it-works')}>
@@ -44,7 +44,7 @@ export default function Hero() {
 
             <div className="hero-stats">
               <div className="hero-stat">
-                <div className="hero-stat-value">280+</div>
+                <div className="hero-stat-value">210+</div>
                 <div className="hero-stat-label">{t('hero.stat.events')}</div>
               </div>
               <div className="hero-stat">

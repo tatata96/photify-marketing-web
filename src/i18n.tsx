@@ -292,9 +292,9 @@ const tr: Dict = {
 
   // For Organizers
   'org.label': 'Organizatörler için',
-  'org.heading.l1': 'Etkinlik Düzenleyin,',
-  'org.heading.l2': 'Fotoğraf',
-  'org.heading.l3': 'Lojistiği Değil.',
+  'org.heading.l1': 'Fotoğraflarınız,',
+  'org.heading.l2': 'anında',
+  'org.heading.l3': 'sizinle.',
   'org.subtext': 'Ayıklama işine ve indirme bağlantısı kovalamacasına son verin — Photify tüm iş akışını otomatikleştirir.',
   'org.stat.hours': 'Etkinlik başına kazanılan saat',
   'org.stat.engagement': 'Etkileşim artışı',
