@@ -101,8 +101,6 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="/legal/Photify_KVKK_GDPR_Aydinlatma_Metni_v2.2.pdf" download="Photify-Gizlilik-Politikasi.pdf" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a></li>
               <li><a href="/legal/Photify_Uyelik_Sozlesmesi_Kullanim_Kosullari_v1.2.pdf" download="Photify-Kullanim-Kosullari.pdf" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a></li>
-              <li><a href="/legal/Photify_Cerez_Politikasi_v1.2.pdf" download="Photify-Cerez-Politikasi.pdf" target="_blank" rel="noopener noreferrer">Çerez Politikası</a></li>
-              <li><a href="/legal/Photify_Iptal_ve_Iade_Politikasi_v1.2.pdf" download="Photify-Iptal-ve-Iade-Politikasi.pdf" target="_blank" rel="noopener noreferrer">İptal ve İade Politikası</a></li>
             </ul>
           </div>
         </div>

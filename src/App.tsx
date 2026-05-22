@@ -9,6 +9,7 @@ import HowItWorks from './components/HowItWorks'
 import EventTypes from './components/EventTypes'
 import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
+import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import StartForm from './components/StartForm'
@@ -62,6 +63,7 @@ function App() {
           <EventTypes />
           <ForOrganizers />
           <Privacy />
+          <FAQ />
           <CTA />
         </>
       )}

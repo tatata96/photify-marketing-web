@@ -44,7 +44,7 @@ export default function Hero() {
 
             <div className="hero-stats">
               <div className="hero-stat">
-                <div className="hero-stat-value">210+</div>
+                <div className="hero-stat-value">100</div>
                 <div className="hero-stat-label">{t('hero.stat.events')}</div>
               </div>
               <div className="hero-stat">

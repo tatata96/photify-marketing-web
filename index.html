@@ -2,13 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="/logo/logo.jpeg" />
+    <link rel="apple-touch-icon" href="/logo/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photify — Every Photo. Only Yours.</title>
-    <meta name="description" content="Scan a QR code, join instantly. AI finds your face and creates your personal photo album. No chaos, no manual sorting — just your memories, delivered." />
+    <title>AI Event Photo Delivery & Face Recognition | Photify</title>
+    <meta name="description" content="Photify is AI event photo delivery done right: guests scan a QR code, face recognition builds personal albums, and memories arrive in real time. Start free." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://photify.studio/#organization",
+          "name": "Photify",
+          "url": "https://photify.studio",
+          "logo": "https://photify.studio/logo/logo.jpeg",
+          "email": "hello@photify.app",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "TR"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@photify.app",
+            "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://photify.studio/#software",
+          "name": "Photify",
+          "applicationCategory": "PhotographyApplication",
+          "operatingSystem": "Web, iOS, Android",
+          "url": "https://photify.studio",
+          "description": "AI event photo delivery platform. Guests scan a QR code, AI face recognition builds personalized albums, and photos are delivered in real time.",
+          "publisher": { "@id": "https://photify.studio/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free plan with up to 50 photos per event."
+          },
+          "featureList": [
+            "QR code instant access",
+            "AI face recognition",
+            "Real-time photo delivery",
+            "Private, personalized albums",
+            "GDPR-compliant privacy"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://photify.studio/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does Photify deliver event photos to guests?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Guests scan a QR code to join the event, and Photify's AI face recognition identifies them across every uploaded photo, then delivers a personalized album in real time — no app download or manual sorting required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do guests need to download an app to get their photos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Guests simply scan a QR code with their phone camera to access their personalized photo album directly in the browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Photify's face recognition GDPR compliant?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Photify is GDPR and KVKK compliant, uses encryption, and processes facial data only with explicit guest consent. Each guest sees only their own private album."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does Photify cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Photify is free to start, including up to 50 photos per event. Paid plans unlock higher volumes and additional features for larger events."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -22,18 +22,6 @@ const documents = [
     label: 'Gizlilik Politikası',
     desc: 'KVKK & GDPR aydınlatma metni',
   },
-  {
-    file: 'Photify_Cerez_Politikasi_v1.2.pdf',
-    download: 'Photify-Cerez-Politikasi.pdf',
-    label: 'Çerez Politikası',
-    desc: 'Çerezler ve izleme teknolojileri',
-  },
-  {
-    file: 'Photify_Iptal_ve_Iade_Politikasi_v1.2.pdf',
-    download: 'Photify-Iptal-ve-Iade-Politikasi.pdf',
-    label: 'İptal ve İade Politikası',
-    desc: 'Cayma hakkı ve iade prosedürü',
-  },
 ]
 
 const DocIcon = () => (

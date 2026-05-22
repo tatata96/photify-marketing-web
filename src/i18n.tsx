@@ -193,6 +193,19 @@ const en: Dict = {
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Continue',
   'start.submitError': 'Something went wrong. Please try again or contact us at info@photify.studio.',
+
+  // FAQ
+  'faq.label': 'FAQ',
+  'faq.heading': 'Frequently Asked Questions',
+  'faq.subtext': 'Everything you need to know about AI event photo delivery with Photify.',
+  'faq.q1': 'How does Photify deliver event photos to guests?',
+  'faq.a1': "Guests scan a QR code to join the event, and Photify's AI face recognition identifies them across every uploaded photo, then delivers a personalized album in real time — no app download or manual sorting required.",
+  'faq.q2': 'Do guests need to download an app to get their photos?',
+  'faq.a2': 'No. Guests simply scan a QR code with their phone camera to access their personalized photo album directly in the browser.',
+  'faq.q3': "Is Photify's face recognition GDPR compliant?",
+  'faq.a3': 'Yes. Photify is GDPR and KVKK compliant, uses encryption, and processes facial data only with explicit guest consent. Each guest sees only their own private album.',
+  'faq.q4': 'How much does Photify cost?',
+  'faq.a4': 'Photify is free to start, including up to 50 photos per event. Paid plans unlock higher volumes and additional features for larger events.',
 }
 
 const tr: Dict = {
@@ -384,6 +397,19 @@ const tr: Dict = {
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Devam Et',
   'start.submitError': 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya info@photify.studio adresinden bizimle iletişime geçin.',
+
+  // FAQ
+  'faq.label': 'SSS',
+  'faq.heading': 'Sıkça Sorulan Sorular',
+  'faq.subtext': 'Photify ile yapay zeka destekli etkinlik fotoğrafı teslimi hakkında bilmeniz gereken her şey.',
+  'faq.q1': 'Photify etkinlik fotoğraflarını misafirlere nasıl ulaştırır?',
+  'faq.a1': 'Misafirler etkinliğe katılmak için bir QR kodu okutur; Photify’nin yapay zeka destekli yüz tanıma teknolojisi onları yüklenen tüm fotoğraflarda tanır ve gerçek zamanlı olarak kişiselleştirilmiş bir albüm sunar — uygulama indirmeye veya elle ayıklamaya gerek yoktur.',
+  'faq.q2': 'Misafirlerin fotoğraflarına ulaşmak için uygulama indirmesi gerekir mi?',
+  'faq.a2': 'Hayır. Misafirler telefon kameralarıyla bir QR kodu okutarak kişiselleştirilmiş fotoğraf albümlerine doğrudan tarayıcıdan erişir.',
+  'faq.q3': 'Photify’nin yüz tanıma teknolojisi GDPR uyumlu mu?',
+  'faq.a3': 'Evet. Photify GDPR ve KVKK uyumludur, şifreleme kullanır ve yüz verisini yalnızca misafirin açık onayıyla işler. Her misafir yalnızca kendi özel albümünü görür.',
+  'faq.q4': 'Photify ne kadar?',
+  'faq.a4': 'Photify ücretsiz başlar ve etkinlik başına 50 fotoğrafa kadar dahildir. Ücretli planlar, daha büyük etkinlikler için daha yüksek hacimler ve ek özellikler sunar.',
 }
 
 const dictionaries: Record<Lang, Dict> = { en, tr }
