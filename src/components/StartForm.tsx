@@ -1,4 +1,5 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react'
+import { useT } from '../i18n'
 
 type FormState = {
   fullName: string
@@ -44,11 +45,11 @@ const guestRanges = [
   { value: '1000+', label: '1,000+' },
 ]
 
-const benefits = [
-  'AI-powered photo matching',
-  'Easy photo sharing for guests',
-  'Designed for weddings, events, and organizers',
-  'Simple setup, premium experience',
+const benefitKeys = [
+  'start.benefit1',
+  'start.benefit2',
+  'start.benefit3',
+  'start.benefit4',
 ]
 
 const Check = () => (
@@ -79,6 +80,7 @@ const validate = (s: FormState): Errors => {
 }
 
 export default function StartForm() {
+  const { t } = useT()
   const [form, setForm] = useState<FormState>(initial)
   const [errors, setErrors] = useState<Errors>({})
   const [submitted, setSubmitted] = useState(false)
@@ -123,7 +125,7 @@ export default function StartForm() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (err) {
       console.error(err)
-      setSubmitError('Something went wrong. Please try again or contact us at info@photify.studio.')
+      setSubmitError(t('start.submitError'))
     } finally {
       setSubmitting(false)
     }
@@ -143,30 +145,30 @@ export default function StartForm() {
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M13 8H3M7 4L3 8L7 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Ana sayfaya dön
+          {t('start.back')}
         </a>
 
         <div className="start-inner">
           <aside className="start-left">
-            <div className="section-label">Get Started</div>
-            <h1 className="start-heading">Start Your<br />Photify Experience</h1>
+            <div className="section-label">{t('start.label')}</div>
+            <h1 className="start-heading">{t('start.heading.l1')}<br />{t('start.heading.l2')}</h1>
             <p className="start-sub">
-              Share a few details about your event and we'll help you create a smarter, easier way to collect and deliver photos.
+              {t('start.sub')}
             </p>
 
             <ul className="start-benefits">
-              {benefits.map((b) => (
-                <li key={b}>
+              {benefitKeys.map((bk) => (
+                <li key={bk}>
                   <span className="start-benefit-icon"><Check /></span>
-                  <span>{b}</span>
+                  <span>{t(bk)}</span>
                 </li>
               ))}
             </ul>
 
             <div className="start-trust">
-              <div className="privacy-badge">🛡 GDPR & KVKK Compliant</div>
+              <div className="privacy-badge">{t('priv.badge')}</div>
               <p className="start-trust-note">
-                Your information stays private. We use it only to set up your Photify event.
+                {t('start.trustNote')}
               </p>
             </div>
           </aside>
@@ -179,19 +181,19 @@ export default function StartForm() {
                     <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h2 className="start-success-title">Thank you!</h2>
+                <h2 className="start-success-title">{t('start.success.title')}</h2>
                 <p className="start-success-text">
-                  Your request has been received. Our team will contact you soon.
+                  {t('start.success.text')}
                 </p>
                 <button type="button" className="btn btn-outline" onClick={goHome}>
-                  Back to home
+                  {t('start.backToHome')}
                 </button>
               </div>
             ) : (
               <form className="start-form" onSubmit={onSubmit} noValidate>
                 <div className="start-form-header">
-                  <h2 className="start-form-title">Event details</h2>
-                  <p className="start-form-sub">Tell us about your event — required fields are marked.</p>
+                  <h2 className="start-form-title">{t('start.form.title')}</h2>
+                  <p className="start-form-sub">{t('start.form.sub')}</p>
                 </div>
 
                 {/* Honeypot: hidden from users, off the tab order, ignored by screen readers. */}
@@ -209,7 +211,7 @@ export default function StartForm() {
 
                 <div className="start-grid">
                   <div className="start-field start-field-full">
-                    <label htmlFor="fullName">Full Name <span className="req">*</span></label>
+                    <label htmlFor="fullName">{t('start.fullName')} <span className="req">*</span></label>
                     <input
                       id="fullName"
                       type="text"
@@ -223,7 +225,7 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="email">Email Address <span className="req">*</span></label>
+                    <label htmlFor="email">{t('start.email')} <span className="req">*</span></label>
                     <input
                       id="email"
                       type="email"
@@ -237,7 +239,7 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="phone">Phone Number <span className="req">*</span></label>
+                    <label htmlFor="phone">{t('start.phone')} <span className="req">*</span></label>
                     <input
                       id="phone"
                       type="tel"
@@ -252,7 +254,7 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field start-field-full">
-                    <label htmlFor="company">Company / Organization</label>
+                    <label htmlFor="company">{t('start.company')}</label>
                     <input
                       id="company"
                       type="text"
@@ -263,7 +265,7 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="eventType">Event Type <span className="req">*</span></label>
+                    <label htmlFor="eventType">{t('start.eventType')} <span className="req">*</span></label>
                     <select
                       id="eventType"
                       value={form.eventType}
@@ -271,7 +273,7 @@ export default function StartForm() {
                       aria-invalid={!!errors.eventType}
                       aria-describedby={errors.eventType ? 'eventType-err' : undefined}
                     >
-                      <option value="">Seçin…</option>
+                      <option value="">{t('start.selectPlaceholder')}</option>
                       {eventTypes.map(t => (
                         <option key={t.value} value={t.value}>{t.label}</option>
                       ))}
@@ -280,7 +282,7 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="eventDate">Event Date</label>
+                    <label htmlFor="eventDate">{t('start.eventDate')}</label>
                     <input
                       id="eventDate"
                       type="date"
@@ -290,13 +292,13 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="guestCount">Estimated Guest Count</label>
+                    <label htmlFor="guestCount">{t('start.guestCount')}</label>
                     <select
                       id="guestCount"
                       value={form.guestCount}
                       onChange={update('guestCount')}
                     >
-                      <option value="">Seçin…</option>
+                      <option value="">{t('start.selectPlaceholder')}</option>
                       {guestRanges.map(g => (
                         <option key={g.value} value={g.value}>{g.label}</option>
                       ))}
@@ -304,25 +306,25 @@ export default function StartForm() {
                   </div>
 
                   <div className="start-field">
-                    <label htmlFor="city">City / Location</label>
+                    <label htmlFor="city">{t('start.city')}</label>
                     <input
                       id="city"
                       type="text"
                       autoComplete="address-level2"
                       value={form.city}
                       onChange={update('city')}
-                      placeholder="Istanbul, Turkey"
+                      placeholder={t('start.city.placeholder')}
                     />
                   </div>
 
                   <div className="start-field start-field-full">
-                    <label htmlFor="notes">Additional Notes</label>
+                    <label htmlFor="notes">{t('start.notes')}</label>
                     <textarea
                       id="notes"
                       rows={4}
                       value={form.notes}
                       onChange={update('notes')}
-                      placeholder="Anything we should know about your event?"
+                      placeholder={t('start.notes.placeholder')}
                     />
                   </div>
 
@@ -351,7 +353,7 @@ export default function StartForm() {
                 )}
 
                 <button type="submit" className="btn btn-primary start-submit" disabled={submitting}>
-                  {submitting ? 'Gönderiliyor…' : 'Continue'}
+                  {submitting ? t('start.submitting') : t('start.continue')}
                   {!submitting && (
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

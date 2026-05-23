@@ -1,51 +1,34 @@
-const steps = [
-  {
-    num: '1',
-    title: 'QR Codes at the Event',
-    text: 'Organizer sets up QR codes at key venues and entry points.',
-  },
-  {
-    num: '2',
-    title: 'Guests Scan & Join',
-    text: 'Guests scan to instantly join the event photo platform.',
-  },
-  {
-    num: '3',
-    title: 'Photos Are Uploaded',
-    text: 'Photographers upload directly to the secure event gallery.',
-  },
-  {
-    num: '4',
-    title: 'AI Creates Albums',
-    text: "Our AI scans every photo and builds each guest's personal album.",
-  },
-  {
-    num: '5',
-    title: 'Access Your Photos',
-    text: 'Each guest views, downloads, and shares only their photos.',
-  },
+import { useT } from '../i18n'
+
+const stepKeys = [
+  { num: '1', titleKey: 'how.s1.title', textKey: 'how.s1.text' },
+  { num: '2', titleKey: 'how.s2.title', textKey: 'how.s2.text' },
+  { num: '3', titleKey: 'how.s3.title', textKey: 'how.s3.text' },
+  { num: '4', titleKey: 'how.s4.title', textKey: 'how.s4.text' },
+  { num: '5', titleKey: 'how.s5.title', textKey: 'how.s5.text' },
 ]
 
 export default function HowItWorks() {
+  const { t } = useT()
   return (
     <section className="howitworks" id="how-it-works">
       <div className="container">
         <div className="howitworks-header" data-reveal>
-          <div className="section-label">Process</div>
-          <h2 className="section-heading">5 Simple Steps</h2>
+          <div className="section-label">{t('how.label')}</div>
+          <h2 className="section-heading">{t('how.heading')}</h2>
           <p className="section-subtext">
-            From venue setup to personal album delivery — the entire journey takes minutes, not days.
+            {t('how.subtext')}
           </p>
         </div>
 
         <div className="steps" data-reveal data-delay="2">
           <div className="steps-line" />
-          {steps.map((step, i) => (
+          {stepKeys.map((step, i) => (
             <div className="step" key={i}>
               <div className="step-number">{step.num}</div>
               <div>
-                <div className="step-title">{step.title}</div>
-                <p className="step-text">{step.text}</p>
+                <div className="step-title">{t(step.titleKey)}</div>
+                <p className="step-text">{t(step.textKey)}</p>
               </div>
             </div>
           ))}
