@@ -2,14 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo/logo.jpeg" />
-    <link rel="apple-touch-icon" href="/logo/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Event Photo Delivery & Face Recognition | Photify</title>
-    <meta name="description" content="Photify is AI event photo delivery done right: guests scan a QR code, face recognition builds personal albums, and memories arrive in real time. Start free." />
+    <meta name="theme-color" content="#FFD23F" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/jpeg" href="/logo/logo.jpeg" />
+    <link rel="apple-touch-icon" href="/logo/logo.jpeg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#FFD23F" />
+
+    <!-- Primary Meta Tags -->
+    <title>Photify — AI Event Photo Delivery with Face Recognition</title>
+    <meta name="title" content="Photify — AI Event Photo Delivery with Face Recognition" />
+    <meta name="description" content="Photify is the AI event photo platform built for guests and organizers. Scan a QR code, let face recognition build personal albums, and deliver memories in real time. Free to start." />
+    <meta name="keywords" content="AI event photography, face recognition photos, event photo delivery, QR code photo sharing, wedding photo app, corporate event photos, personalized photo albums, Photify, GDPR photo platform" />
+    <meta name="author" content="Photify" />
+    <meta name="publisher" content="Photify" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="application-name" content="Photify" />
+    <meta name="apple-mobile-web-app-title" content="Photify" />
+
+    <!-- Canonical & Language Alternates -->
+    <link rel="canonical" href="https://photify.studio/" />
+    <link rel="alternate" hreflang="en" href="https://photify.studio/" />
+    <link rel="alternate" hreflang="tr" href="https://photify.studio/?lang=tr" />
+    <link rel="alternate" hreflang="x-default" href="https://photify.studio/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Photify" />
+    <meta property="og:url" content="https://photify.studio/" />
+    <meta property="og:title" content="Photify — AI Event Photo Delivery with Face Recognition" />
+    <meta property="og:description" content="Guests scan a QR code, AI face recognition builds personal albums, photos arrive in real time. Photify makes event photography effortless for organizers and unforgettable for guests." />
+    <meta property="og:image" content="https://photify.studio/logo/logo.jpeg" />
+    <meta property="og:image:secure_url" content="https://photify.studio/logo/logo.jpeg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Photify — AI event photo delivery" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://photify.studio/" />
+    <meta name="twitter:title" content="Photify — AI Event Photo Delivery with Face Recognition" />
+    <meta name="twitter:description" content="Guests scan a QR code, AI face recognition builds personal albums, photos arrive in real time. Photify makes event photography effortless." />
+    <meta name="twitter:image" content="https://photify.studio/logo/logo.jpeg" />
+    <meta name="twitter:image:alt" content="Photify — AI event photo delivery" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -18,9 +66,18 @@
           "@type": "Organization",
           "@id": "https://photify.studio/#organization",
           "name": "Photify",
+          "alternateName": "Photify Studio",
           "url": "https://photify.studio",
-          "logo": "https://photify.studio/logo/logo.jpeg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://photify.studio/logo/logo.jpeg",
+            "width": 1024,
+            "height": 1024
+          },
+          "image": "https://photify.studio/logo/logo.jpeg",
           "email": "hello@photify.app",
+          "description": "Photify is an AI-powered event photography platform that uses face recognition to deliver personalized photo albums to guests in real time.",
+          "foundingDate": "2024",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Istanbul",
@@ -29,8 +86,24 @@
           "contactPoint": {
             "@type": "ContactPoint",
             "email": "hello@photify.app",
-            "contactType": "customer support"
-          }
+            "contactType": "customer support",
+            "availableLanguage": ["English", "Turkish"]
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/photify-studio-14372a399/",
+            "https://www.facebook.com/profile.php?id=61564553221249",
+            "https://www.tiktok.com/@photify.studio",
+            "https://www.instagram.com/photify.studio/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://photify.studio/#website",
+          "url": "https://photify.studio",
+          "name": "Photify",
+          "description": "AI event photo delivery with face recognition.",
+          "publisher": { "@id": "https://photify.studio/#organization" },
+          "inLanguage": ["en", "tr"]
         },
         {
           "@type": "SoftwareApplication",
@@ -41,6 +114,7 @@
           "url": "https://photify.studio",
           "description": "AI event photo delivery platform. Guests scan a QR code, AI face recognition builds personalized albums, and photos are delivered in real time.",
           "publisher": { "@id": "https://photify.studio/#organization" },
+          "image": "https://photify.studio/logo/logo.jpeg",
           "offers": {
             "@type": "Offer",
             "price": "0",

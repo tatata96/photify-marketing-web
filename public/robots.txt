@@ -1,0 +1,9 @@
+# https://photify.studio robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Block crawling of legal PDFs (still accessible via direct link)
+Disallow: /legal/
+
+Sitemap: https://photify.studio/sitemap.xml
