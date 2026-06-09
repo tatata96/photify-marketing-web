@@ -13,8 +13,13 @@ import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import StartForm from './components/StartForm'
+import PrivacyPage from './components/PrivacyPage'
 
-const getRoute = () => (window.location.hash.replace(/^#/, '') || '/')
+const getRoute = () => {
+  const path = window.location.pathname.replace(/\/+$/, '')
+  if (path === '/privacy') return '/privacy'
+  return window.location.hash.replace(/^#/, '') || '/'
+}
 
 function App() {
   const [route, setRoute] = useState<string>(getRoute())
@@ -25,7 +30,11 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'auto' })
     }
     window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
+    window.addEventListener('popstate', onHashChange)
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+      window.removeEventListener('popstate', onHashChange)
+    }
   }, [])
 
   useEffect(() => {
@@ -48,11 +57,14 @@ function App() {
   }, [route])
 
   const isStart = route === 'start' || route === '/start'
+  const isPrivacyPage = route === '/privacy'
 
   return (
     <>
       <Navbar />
-      {isStart ? (
+      {isPrivacyPage ? (
+        <PrivacyPage />
+      ) : isStart ? (
         <StartForm />
       ) : (
         <>

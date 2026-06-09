@@ -15,18 +15,30 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const goHome = () => {
+    // Switch back to the home route. Covers both pathname routes (e.g.
+    // /privacy) and hash routes (e.g. #start) by resetting both.
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/')
+      window.dispatchEvent(new PopStateEvent('popstate'))
+    } else {
+      window.location.hash = ''
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+    }
+  }
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
       return
     }
-    // Section isn't mounted — we're on a non-home route (e.g. /start).
+    // Section isn't mounted — we're on a non-home route (e.g. /start, /privacy).
     // Navigate home, then jump to the section once it renders.
-    window.location.hash = ''
+    goHome()
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'auto' })
-    }, 60)
+    }, 80)
   }
 
   const toggleLang = () => setLang(lang === 'en' ? 'tr' : 'en')
@@ -36,7 +48,7 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container">
         <div className="navbar-inner">
-          <a className="navbar-logo" href="#">
+          <a className="navbar-logo" href="/" onClick={e => { e.preventDefault(); goHome() }}>
             <LogoMark />
             <span className="navbar-logo-text">Photify</span>
           </a>

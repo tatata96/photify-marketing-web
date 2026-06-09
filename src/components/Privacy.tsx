@@ -11,14 +11,14 @@ const commitmentKeys = [
 
 const documents = [
   {
-    file: 'Photify_Uyelik_Sozlesmesi_Kullanim_Kosullari_v1.2.pdf',
-    download: 'Photify-Kullanim-Kosullari.pdf',
+    file: 'Photify_Terms_of_Service_EN_v1.3.pdf',
+    download: 'Photify-Terms-of-Service.pdf',
     label: 'Kullanım Koşulları',
     desc: 'Üyelik sözleşmesi ve hizmet şartları',
   },
   {
-    file: 'Photify_KVKK_GDPR_Aydinlatma_Metni_v2.2.pdf',
-    download: 'Photify-Gizlilik-Politikasi.pdf',
+    file: 'Photify_Privacy_Policy_EN_v2.3.pdf',
+    download: 'Photify-Privacy-Policy.pdf',
     label: 'Gizlilik Politikası',
     desc: 'KVKK & GDPR aydınlatma metni',
   },
