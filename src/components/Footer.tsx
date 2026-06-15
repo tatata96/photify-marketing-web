@@ -72,8 +72,7 @@ export default function Footer() {
             </div>
             <p>{t('footer.tagline')}</p>
             <div className="footer-contact">
-              <a href="mailto:hello@photify.app">✉ hello@photify.app</a>
-              <a href="tel:+902121234567">☎ +90 (212) 123 4567</a>
+              <a href="mailto:info@photify.com">✉ info@photify.com</a>
               <a href="#">{t('footer.location')}</a>
             </div>
           </div>

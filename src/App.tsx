@@ -12,7 +12,8 @@ import Privacy from './components/Privacy'
 import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
-import StartForm from './components/StartForm'
+// TODO: Enable the start/contact form again when lead capture is ready.
+// import StartForm from './components/StartForm'
 import PrivacyPage from './components/PrivacyPage'
 
 const getRoute = () => {
@@ -56,7 +57,8 @@ function App() {
     return () => observer.disconnect()
   }, [route])
 
-  const isStart = route === 'start' || route === '/start'
+  // TODO: Enable the start/contact form route again when lead capture is ready.
+  // const isStart = route === 'start' || route === '/start'
   const isPrivacyPage = route === '/privacy'
 
   return (
@@ -64,8 +66,9 @@ function App() {
       <Navbar />
       {isPrivacyPage ? (
         <PrivacyPage />
-      ) : isStart ? (
-        <StartForm />
+      // TODO: Enable the start/contact form again when lead capture is ready.
+      // ) : isStart ? (
+      //   <StartForm />
       ) : (
         <>
           <Hero />

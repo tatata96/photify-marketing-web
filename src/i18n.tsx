@@ -192,7 +192,7 @@ const en: Dict = {
   'start.selectPlaceholder': 'Seçin…',
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Continue',
-  'start.submitError': 'Something went wrong. Please try again or contact us at info@photify.studio.',
+  'start.submitError': 'Something went wrong. Please try again or contact us at info@photify.com.',
 
   // FAQ
   'faq.label': 'FAQ',
@@ -396,7 +396,7 @@ const tr: Dict = {
   'start.selectPlaceholder': 'Seçin…',
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Devam Et',
-  'start.submitError': 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya info@photify.studio adresinden bizimle iletişime geçin.',
+  'start.submitError': 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya info@photify.com adresinden bizimle iletişime geçin.',
 
   // FAQ
   'faq.label': 'SSS',

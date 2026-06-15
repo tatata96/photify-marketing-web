@@ -22,7 +22,7 @@ export default function CTA() {
           </div>
 
           <div className="cta-right" data-reveal data-delay="2">
-            <a className="btn-cta-primary" href="#start">{t('cta.startFree')}</a>
+            <a className="btn-cta-primary" href="mailto:info@photify.com">{t('cta.startFree')}</a>
             <button type="button" className="btn-cta-ghost">{t('cta.scheduleDemo')}</button>
           </div>
         </div>
