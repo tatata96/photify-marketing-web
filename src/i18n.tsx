@@ -194,6 +194,11 @@ const en: Dict = {
   'start.continue': 'Continue',
   'start.submitError': 'Something went wrong. Please try again or contact us at info@photify.com.',
 
+  // Contact
+  'contact.label': 'Contact',
+  'contact.heading': 'Get in Touch',
+  'contact.sub': "We'd love to hear from you — reach out anytime.",
+
   // FAQ
   'faq.label': 'FAQ',
   'faq.heading': 'Frequently Asked Questions',
@@ -397,6 +402,11 @@ const tr: Dict = {
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Devam Et',
   'start.submitError': 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya info@photify.com adresinden bizimle iletişime geçin.',
+
+  // Contact
+  'contact.label': 'İletişim',
+  'contact.heading': 'Bize Ulaşın',
+  'contact.sub': 'Her zaman ulaşabilirsiniz — sizden haber almaktan mutluluk duyarız.',
 
   // FAQ
   'faq.label': 'SSS',

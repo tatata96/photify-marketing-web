@@ -10,15 +10,18 @@ import EventTypes from './components/EventTypes'
 import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
 import FAQ from './components/FAQ'
+import Contact from './components/Contact'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 // TODO: Enable the start/contact form again when lead capture is ready.
 // import StartForm from './components/StartForm'
 import PrivacyPage from './components/PrivacyPage'
+import SupportPage from './components/SupportPage'
 
 const getRoute = () => {
   const path = window.location.pathname.replace(/\/+$/, '')
   if (path === '/privacy') return '/privacy'
+  if (path === '/support') return '/support'
   return window.location.hash.replace(/^#/, '') || '/'
 }
 
@@ -60,12 +63,15 @@ function App() {
   // TODO: Enable the start/contact form route again when lead capture is ready.
   // const isStart = route === 'start' || route === '/start'
   const isPrivacyPage = route === '/privacy'
+  const isSupportPage = route === '/support'
 
   return (
     <>
       <Navbar />
       {isPrivacyPage ? (
         <PrivacyPage />
+      ) : isSupportPage ? (
+        <SupportPage />
       // TODO: Enable the start/contact form again when lead capture is ready.
       // ) : isStart ? (
       //   <StartForm />
@@ -79,6 +85,7 @@ function App() {
           <ForOrganizers />
           <Privacy />
           <FAQ />
+          <Contact />
           <CTA />
         </>
       )}

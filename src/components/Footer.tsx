@@ -91,7 +91,7 @@ export default function Footer() {
             <div className="footer-col-title">{t('footer.col.company')}</div>
             <ul className="footer-links">
               <li><a href="#privacy" onClick={e => { e.preventDefault(); scrollTo('privacy') }}>{t('nav.privacy')}</a></li>
-              <li><a href="#cta" onClick={e => { e.preventDefault(); scrollTo('cta') }}>{t('footer.link.contact')}</a></li>
+              <li><a href="/support">{t('footer.link.contact')}</a></li>
             </ul>
           </div>
 

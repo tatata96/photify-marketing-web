@@ -963,6 +963,80 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   line-height: 1.7;
 }
 
+/* ===================== CONTACT ===================== */
+.contact-section {
+  padding: var(--section-pad);
+  background: var(--bg-alt);
+}
+.contact-section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.contact-section-inner .section-heading {
+  margin-bottom: 12px;
+}
+.contact-section-sub {
+  font-size: 1.05rem;
+  color: var(--secondary);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.contact-card {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+.contact-link:hover {
+  border-color: var(--yellow);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  color: var(--black);
+}
+.contact-link svg {
+  color: var(--yellow-dark);
+  flex-shrink: 0;
+}
+.contact-socials {
+  display: flex;
+  gap: 12px;
+}
+.contact-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--secondary);
+  transition: all 0.2s ease;
+}
+.contact-social-link:hover {
+  border-color: var(--yellow);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
 /* ===================== CTA ===================== */
 .cta {
   padding: 88px 0;
