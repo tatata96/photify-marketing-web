@@ -117,7 +117,7 @@ export default function PrivacyPage() {
 
                 <div className="pp-subsection">
                   <h3 className="pp-subsection-title">Storage of Face Data</h3>
-                  <p>User photos may be stored using secure cloud storage providers acting as data processors on behalf of Photify. Biometric templates and matching records are stored in secure databases controlled by Photify.</p>
+                  <p>User photos and related data are stored using secure cloud infrastructure providers acting on behalf of Photify. Biometric templates and matching records are stored in secure databases controlled by Photify.</p>
                 </div>
 
                 <div className="pp-subsection">
