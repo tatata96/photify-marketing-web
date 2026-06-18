@@ -70,8 +70,8 @@ export default function PrivacyPage() {
             <h1 className="pp-title">{isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}</h1>
             <p className="pp-subtitle">
               {isTr
-                ? 'Son güncelleme: Haziran 2025 · Tüm Photify kullanıcıları için geçerlidir'
-                : 'Last updated: June 2025 · Effective for all Photify users'}
+                ? 'Son güncelleme: Haziran 2026 · Tüm Photify kullanıcıları için geçerlidir'
+                : 'Last updated: June 2026 · Effective for all Photify users'}
             </p>
           </div>
         </div>
