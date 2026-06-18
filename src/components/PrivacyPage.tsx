@@ -10,9 +10,8 @@ const sections = {
     { id: 'data-sharing', number: '05', title: 'Data Sharing and Third Parties' },
     { id: 'data-retention', number: '06', title: 'Data Retention' },
     { id: 'account-deletion', number: '07', title: 'Account Deletion' },
-    { id: 'gdpr-rights', number: '08', title: 'GDPR Rights (EU Users)' },
-    { id: 'kvkk-rights', number: '09', title: 'KVKK Rights (Turkey)' },
-    { id: 'contact', number: '10', title: 'Contact Us' },
+    { id: 'user-privacy-rights', number: '08', title: 'User Privacy Rights' },
+    { id: 'contact', number: '09', title: 'Contact Us' },
   ],
   tr: [
     { id: 'information-we-collect', number: '01', title: 'Topladığımız Bilgiler' },
@@ -22,9 +21,8 @@ const sections = {
     { id: 'data-sharing', number: '05', title: 'Veri Paylaşımı ve Üçüncü Taraflar' },
     { id: 'data-retention', number: '06', title: 'Veri Saklama' },
     { id: 'account-deletion', number: '07', title: 'Hesap Silme' },
-    { id: 'gdpr-rights', number: '08', title: 'GDPR Hakları (AB Kullanıcıları)' },
-    { id: 'kvkk-rights', number: '09', title: 'KVKK Hakları (Türkiye)' },
-    { id: 'contact', number: '10', title: 'Bize Ulaşın' },
+    { id: 'user-privacy-rights', number: '08', title: 'Kullanıcı Gizlilik Hakları' },
+    { id: 'contact', number: '09', title: 'Bize Ulaşın' },
   ],
 }
 
@@ -300,91 +298,54 @@ export default function PrivacyPage() {
             </section>
 
             {/* 08 */}
-            <section id="gdpr-rights" className="pp-section">
+            <section id="user-privacy-rights" className="pp-section">
               <div className="pp-section-header">
                 <span className="pp-section-num">08</span>
-                <h2 className="pp-section-title">{isTr ? 'GDPR Hakları (AB Kullanıcıları)' : 'GDPR Rights (EU Users)'}</h2>
+                <h2 className="pp-section-title">{isTr ? 'Kullanıcı Gizlilik Hakları' : 'User Privacy Rights'}</h2>
               </div>
               <div className="pp-section-body">
                 {isTr ? (
                   <>
-                    <p>Avrupa Birliği veya Avrupa Ekonomik Alanı'nda bulunuyorsanız, Genel Veri Koruma Yönetmeliği (GDPR) kapsamında aşağıdaki haklara sahipsiniz:</p>
+                    <p>Tüm kullanıcılar, uygulanabilir gizlilik yasaları kapsamında —  GDPR, KVKK ve diğer yerel düzenlemeler dahil — aşağıdaki haklara sahip olabilir. Bu haklarınızı kullanmak için bizimle iletişime geçebilirsiniz.</p>
                     <ul className="pp-list">
                       <li><strong>Erişim hakkı</strong> — hakkınızda tuttuğumuz kişisel verilerin bir kopyasını talep etme.</li>
                       <li><strong>Düzeltme hakkı</strong> — yanlış veya eksik verilerin düzeltilmesini talep etme.</li>
-                      <li><strong>Silme hakkı</strong> — kişisel verilerinizin silinmesini talep etme ("unutulma hakkı").</li>
-                      <li><strong>Kısıtlama hakkı</strong> — verilerinizi nasıl işlediğimizi sınırlamamızı talep etme.</li>
+                      <li><strong>Silme hakkı</strong> — kişisel verilerinizin silinmesini talep etme.</li>
+                      <li><strong>İşlemeyi kısıtlama hakkı</strong> — belirli koşullarda verilerinizin nasıl işlendiğini kısıtlamamızı talep etme.</li>
                       <li><strong>Veri taşınabilirliği hakkı</strong> — verilerinizi yapılandırılmış, makine tarafından okunabilir bir biçimde alma.</li>
                       <li><strong>İtiraz hakkı</strong> — meşru çıkarlara dayalı işleme itiraz etme.</li>
-                      <li><strong>Onayı geri çekme hakkı</strong> — önceki işlemin hukuka uygunluğunu etkilemeksizin, biyometrik işleme onayını istediğiniz zaman geri çekme.</li>
+                      <li><strong>Biyometrik işleme onayını geri çekme hakkı</strong> — önceki işlemin geçerliliğini etkilemeksizin, biyometrik işleme onayınızı istediğiniz zaman geri çekme.</li>
+                      <li><strong>Bilgi talep etme hakkı</strong> — kişisel verilerinizin nasıl işlendiğine dair bilgi isteme.</li>
+                      <li><strong>Yanlış verilerin düzeltilmesini veya silinmesini talep etme hakkı</strong> — hatalı ya da güncel olmayan verilerin güncellenmesini veya kaldırılmasını isteme.</li>
+                      <li><strong>Denetim makamına şikâyette bulunma hakkı</strong> — uygulanabilir durumlarda ilgili veri koruma otoritesine şikâyette bulunma.</li>
                     </ul>
-                    <p>Bu haklarınızı kullanmak için <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a> adresinden bizimle iletişime geçin. 1–2 iş günü içinde yanıt vereceğiz.</p>
+                    <p>Gizlilik taleplerine 1–2 iş günü içinde, her durumda uygulanabilir mevzuatın öngördüğü süreler içinde yanıt vermeyi hedefliyoruz. Talepleriniz için <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a> adresiyle iletişime geçin.</p>
                   </>
                 ) : (
                   <>
-                    <p>If you are located in the European Union or European Economic Area, you have the following rights under the General Data Protection Regulation (GDPR):</p>
+                    <p>Depending on where you are located, you may have rights under applicable privacy laws, including GDPR, KVKK, and other local regulations. These rights may include:</p>
                     <ul className="pp-list">
                       <li><strong>Right of access</strong> — request a copy of the personal data we hold about you.</li>
                       <li><strong>Right to rectification</strong> — request correction of inaccurate or incomplete data.</li>
-                      <li><strong>Right to erasure</strong> — request deletion of your personal data ("right to be forgotten").</li>
-                      <li><strong>Right to restriction</strong> — request that we limit how we process your data.</li>
+                      <li><strong>Right to erasure</strong> — request deletion of your personal data.</li>
+                      <li><strong>Right to restriction of processing</strong> — request that we limit how we process your data in certain circumstances.</li>
                       <li><strong>Right to data portability</strong> — receive your data in a structured, machine-readable format.</li>
                       <li><strong>Right to object</strong> — object to processing based on legitimate interests.</li>
-                      <li><strong>Right to withdraw consent</strong> — withdraw consent for biometric processing at any time without affecting the lawfulness of prior processing.</li>
+                      <li><strong>Right to withdraw consent for biometric processing</strong> — withdraw consent at any time without affecting the lawfulness of prior processing.</li>
+                      <li><strong>Right to request information</strong> — ask how your personal data is being processed.</li>
+                      <li><strong>Right to request correction or deletion of inaccurate data</strong> — ask us to update or remove data that is wrong or out of date.</li>
+                      <li><strong>Right to lodge a complaint</strong> — file a complaint with the relevant supervisory authority where applicable.</li>
                     </ul>
-                    <p>To exercise these rights, contact us at <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a>. We will respond within 1–2 business days.</p>
+                    <p>We aim to respond to privacy requests within 1–2 business days and no later than the time periods required by applicable law. To exercise your rights, contact us at <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a>.</p>
                   </>
                 )}
               </div>
             </section>
 
             {/* 09 */}
-            <section id="kvkk-rights" className="pp-section">
-              <div className="pp-section-header">
-                <span className="pp-section-num">09</span>
-                <h2 className="pp-section-title">{isTr ? 'KVKK Hakları (Türkiye)' : 'KVKK Rights (Turkey)'}</h2>
-              </div>
-              <div className="pp-section-body">
-                {isTr ? (
-                  <>
-                    <p>Türkiye'de bulunuyorsanız, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aşağıdaki haklara sahipsiniz:</p>
-                    <ul className="pp-list">
-                      <li>Kişisel verinizin işlenip işlenmediğini öğrenme.</li>
-                      <li>İşlenmiş ise buna ilişkin bilgi talep etme.</li>
-                      <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme.</li>
-                      <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme.</li>
-                      <li>Eksik veya yanlış işlenmiş ise düzeltilmesini isteme.</li>
-                      <li>KVKK kapsamında kişisel verilerin silinmesini veya yok edilmesini isteme.</li>
-                      <li>Yukarıdaki işlemlerin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme.</li>
-                      <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme.</li>
-                      <li>Kişisel verilerinin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme.</li>
-                    </ul>
-                    <p>KVKK haklarınızı kullanmak için <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a> adresinden bizimle iletişime geçin.</p>
-                  </>
-                ) : (
-                  <>
-                    <p>If you are located in Turkey, you have the following rights under the Kişisel Verilerin Korunması Kanunu (KVKK — Law No. 6698):</p>
-                    <ul className="pp-list">
-                      <li>Learn whether your personal data is being processed.</li>
-                      <li>Request information about the processing if it has been processed.</li>
-                      <li>Learn the purpose of the processing and whether data is used in accordance with its purpose.</li>
-                      <li>Know the third parties to whom personal data is transferred, domestically or abroad.</li>
-                      <li>Request rectification if personal data is incomplete or inaccurately processed.</li>
-                      <li>Request deletion or destruction of personal data within the scope of KVKK.</li>
-                      <li>Request notification of the operations carried out under the above rights to third parties to whom personal data has been transferred.</li>
-                      <li>Object to a result that is to your detriment arising from analysis performed exclusively through automated systems.</li>
-                      <li>Claim compensation for damages arising from the unlawful processing of personal data.</li>
-                    </ul>
-                    <p>To exercise your KVKK rights, contact us at <a href="mailto:info@photify.studio" className="pp-link">info@photify.studio</a>.</p>
-                  </>
-                )}
-              </div>
-            </section>
-
-            {/* 10 */}
             <section id="contact" className="pp-section">
               <div className="pp-section-header">
-                <span className="pp-section-num">10</span>
+                <span className="pp-section-num">09</span>
                 <h2 className="pp-section-title">{isTr ? 'Bize Ulaşın' : 'Contact Us'}</h2>
               </div>
               <div className="pp-section-body">
