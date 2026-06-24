@@ -152,6 +152,9 @@ const en: Dict = {
   'cta.startFree': 'Start for Free',
   'cta.scheduleDemo': 'Schedule a Demo',
 
+  // App Store
+  'appstore.cta': 'Get the App',
+
   // Footer
   'footer.tagline': 'AI-powered event photography that delivers every photo to the right person, instantly.',
   'footer.location': '📍 Istanbul, Turkey',
@@ -360,6 +363,9 @@ const tr: Dict = {
   'cta.perk3': '5 dk kurulum',
   'cta.startFree': 'Ücretsiz Başla',
   'cta.scheduleDemo': 'Demo Planla',
+
+  // App Store
+  'appstore.cta': 'Uygulamayı İndir',
 
   // Footer
   'footer.tagline': 'Her fotoğrafı doğru kişiye anında ulaştıran yapay zeka destekli etkinlik fotoğrafçılığı.',
