@@ -3,9 +3,6 @@ import { useT } from '../i18n'
 const benefitKeys = [
   { icon: '⏱', titleKey: 'org.b1.title', textKey: 'org.b1.text' },
   { icon: '📈', titleKey: 'org.b2.title', textKey: 'org.b2.text' },
-  { icon: '✨', titleKey: 'org.b3.title', textKey: 'org.b3.text' },
-  { icon: '🔧', titleKey: 'org.b4.title', textKey: 'org.b4.text' },
-  { icon: '📊', titleKey: 'org.b5.title', textKey: 'org.b5.text' },
   { icon: '🎯', titleKey: 'org.b6.title', textKey: 'org.b6.text' },
 ]
 

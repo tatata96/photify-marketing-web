@@ -66,7 +66,7 @@ export default function Footer() {
           <div className="footer-brand">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <LogoMark />
-              <span style={{ fontFamily: 'var(--font-head)', fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>
+              <span style={{ fontFamily: 'var(--font-head)', fontWeight: 800, fontSize: '1.1rem', color: 'var(--black)' }}>
                 Photify
               </span>
             </div>

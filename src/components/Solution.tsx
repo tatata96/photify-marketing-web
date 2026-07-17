@@ -60,7 +60,7 @@ export default function Solution() {
       <div className="container">
         <div className="solution-header" data-reveal>
           <div className="section-label">{t('solution.label')}</div>
-          <h2 className="section-heading">{t('solution.heading.l1')}<br />{t('solution.heading.l2')}</h2>
+          <h2 className="section-heading">{t('solution.heading')}</h2>
           <p className="section-subtext">
             {t('solution.subtext')}
           </p>

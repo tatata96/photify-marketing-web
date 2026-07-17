@@ -81,7 +81,6 @@ export default function Navbar() {
               </svg>
               {t('appstore.cta')}
             </a>
-            <a href="#cta" className="btn btn-primary" onClick={e => { e.preventDefault(); scrollTo('cta') }}>{t('nav.getDemo')}</a>
           </div>
         </div>
       </div>

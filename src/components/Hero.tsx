@@ -9,7 +9,6 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <div className="hero-bg-pattern" />
       <div className="hero-bg-glow" />
 
       <div className="container">
@@ -37,9 +36,6 @@ export default function Hero() {
                   <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <button className="btn btn-ghost" onClick={() => scrollTo('how-it-works')}>
-                {t('hero.cta.join')}
-              </button>
               <a
                 className="btn-appstore"
                 href="https://apps.apple.com/tr/app/photify/id6779256503"
@@ -52,21 +48,12 @@ export default function Hero() {
                 </svg>
                 {t('appstore.cta')}
               </a>
-            </div>
-
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <div className="hero-stat-value">100</div>
-                <div className="hero-stat-label">{t('hero.stat.events')}</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-value">27.6K+</div>
-                <div className="hero-stat-label">{t('hero.stat.photos')}</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-value">GDPR</div>
-                <div className="hero-stat-label">{t('hero.stat.gdpr')}</div>
-              </div>
+              <span className="badge-android-soon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.6 9.48l1.84-3.18a.42.42 0 00-.15-.57.42.42 0 00-.57.15l-1.86 3.22a10.8 10.8 0 00-8.72 0L6.28 5.88a.42.42 0 00-.57-.15.42.42 0 00-.15.57L7.4 9.48C4.48 11.1 2.5 14.02 2.24 17.4h19.52c-.26-3.38-2.24-6.3-5.16-7.92zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/>
+                </svg>
+                {t('android.comingSoon')}
+              </span>
             </div>
           </div>
 
@@ -78,10 +65,6 @@ export default function Hero() {
                 <strong>{t('hero.badge1.title')}</strong>
                 <span>{t('hero.badge1.sub')}</span>
               </div>
-            </div>
-            <div className="hero-img-badge-2">
-              <strong>{t('hero.badge2.title')}</strong>
-              <span>{t('hero.badge2.sub')}</span>
             </div>
           </div>
         </div>

@@ -5,13 +5,12 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Solution from './components/Solution'
-import HowItWorks from './components/HowItWorks'
+import Features from './components/Features'
 import EventTypes from './components/EventTypes'
 import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
-import CTA from './components/CTA'
 import Footer from './components/Footer'
 // TODO: Enable the start/contact form again when lead capture is ready.
 // import StartForm from './components/StartForm'
@@ -80,13 +79,12 @@ function App() {
           <Hero />
           <Problem />
           <Solution />
-          <HowItWorks />
+          <Features />
           <EventTypes />
           <ForOrganizers />
           <Privacy />
           <FAQ />
           <Contact />
-          <CTA />
         </>
       )}
       <Footer />

@@ -14,9 +14,9 @@ const en: Dict = {
 
   // Hero
   'hero.tag': 'AI-Powered Event Photography',
-  'hero.headline.l1': 'Every',
-  'hero.headline.l2': 'Photo.',
-  'hero.headline.l3': 'Only Yours.',
+  'hero.headline.l1': 'Upload one selfie.',
+  'hero.headline.l2': 'Get every photo',
+  'hero.headline.l3': "you're in.",
   'hero.subtext': 'Scan a QR code, join instantly. AI finds your face and creates your personal photo album. No chaos, no manual sorting — just your memories, delivered.',
   'hero.cta.organizers': 'For Organizers',
   'hero.cta.join': 'Join an Event',
@@ -218,10 +218,10 @@ const tr: Dict = {
 
   // Hero
   'hero.tag': 'Yapay Zeka Destekli Etkinlik Fotoğrafçılığı',
-  'hero.headline.l1': 'Her',
-  'hero.headline.l2': 'Fotoğraf.',
-  'hero.headline.l3': 'Yalnızca Sizin.',
-  'hero.subtext': 'QR kodu okutun, anında katılın. Yapay zeka yüzünüzü bulur ve kişisel fotoğraf albümünüzü oluşturur. Karmaşa yok, manuel ayıklama yok — yalnızca anılarınız, anında teslim.',
+  'hero.headline.l1': 'Selfie yükle.',
+  'hero.headline.l2': 'Olduğun her fotoğrafı',
+  'hero.headline.l3': 'hemen bul.',
+  'hero.subtext': 'QR kodu okutun, anında katılın. Yapay zeka teknolojimiz her fotoğrafın doğru kişiye hızlı ve güvenli bir şekilde ulaşmasını sağlar. Yüzünüzü bulur ve kişisel fotoğraf albümünüzü oluşturur. Karmaşa yok, manuel ayıklama yok.',
   'hero.cta.organizers': 'Organizatörler için',
   'hero.cta.join': 'Etkinliğe Katıl',
   'hero.stat.events': 'Düzenlenen Etkinlik',

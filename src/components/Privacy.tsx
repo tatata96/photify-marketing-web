@@ -5,8 +5,6 @@ const commitmentKeys = [
   { icon: '🔐', titleKey: 'priv.c2.title', textKey: 'priv.c2.text' },
   { icon: '👤', titleKey: 'priv.c3.title', textKey: 'priv.c3.text' },
   { icon: '✋', titleKey: 'priv.c4.title', textKey: 'priv.c4.text' },
-  { icon: '🇪🇺', titleKey: 'priv.c5.title', textKey: 'priv.c5.text' },
-  { icon: '🔍', titleKey: 'priv.c6.title', textKey: 'priv.c6.text' },
 ]
 
 
