@@ -16,11 +16,13 @@ import Footer from './components/Footer'
 // import StartForm from './components/StartForm'
 import PrivacyPage from './components/PrivacyPage'
 import SupportPage from './components/SupportPage'
+import JoinEventPage from './components/JoinEventPage'
 
 const getRoute = () => {
   const path = window.location.pathname.replace(/\/+$/, '')
   if (path === '/privacy') return '/privacy'
   if (path === '/support') return '/support'
+  if (path === '/join' || path.startsWith('/join/')) return path
   return window.location.hash.replace(/^#/, '') || '/'
 }
 
@@ -63,6 +65,8 @@ function App() {
   // const isStart = route === 'start' || route === '/start'
   const isPrivacyPage = route === '/privacy'
   const isSupportPage = route === '/support'
+  const isJoinEventPage = route === '/join' || route.startsWith('/join/')
+  const joinEventCode = isJoinEventPage ? route.match(/^\/join\/(.+)$/)?.[1] : undefined
 
   return (
     <>
@@ -71,6 +75,8 @@ function App() {
         <PrivacyPage />
       ) : isSupportPage ? (
         <SupportPage />
+      ) : isJoinEventPage ? (
+        <JoinEventPage eventCodeParam={joinEventCode} />
       // TODO: Enable the start/contact form again when lead capture is ready.
       // ) : isStart ? (
       //   <StartForm />

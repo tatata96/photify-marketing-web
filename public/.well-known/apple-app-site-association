@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "PD32MYJRLB.com.tamarakozok.photoapp"
+        ],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Open Photify event links"
+          }
+        ]
+      }
+    ]
+  }
+}

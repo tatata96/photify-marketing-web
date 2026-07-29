@@ -150,6 +150,98 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   max-width: 560px;
 }
 
+/* ===================== JOIN EVENT ===================== */
+.join-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 132px 0 72px;
+  background:
+    linear-gradient(135deg, rgba(255, 210, 63, 0.18), rgba(255, 255, 255, 0) 38%),
+    var(--bg);
+}
+.join-page-container {
+  display: flex;
+  justify-content: center;
+}
+.join-panel {
+  width: min(100%, 560px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 36px;
+  text-align: center;
+}
+.join-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  background: var(--yellow-light);
+  border: 1px solid rgba(255, 210, 63, 0.34);
+}
+.join-logo img {
+  border-radius: 12px;
+  object-fit: cover;
+}
+.join-label {
+  margin-bottom: 14px;
+}
+.join-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.join-copy {
+  color: var(--secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 470px;
+  margin: 0 auto 24px;
+}
+.join-error {
+  color: #8a3b10;
+}
+.join-code {
+  display: grid;
+  gap: 4px;
+  margin: 0 auto 26px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+}
+.join-code span {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.join-code strong {
+  overflow-wrap: anywhere;
+  font-family: var(--font-head);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--black);
+}
+.join-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.join-primary {
+  font-weight: 700;
+}
+
 /* ===================== NAVBAR ===================== */
 .navbar {
   position: fixed;
