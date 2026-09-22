@@ -2,19 +2,23 @@ import { useState, type FormEvent, type ChangeEvent } from 'react'
 import { useT } from '../i18n'
 
 type FormState = {
+  email: string
   eventType: string
   attendeeCount: string
   eventName: string
   addOns: string[]
+  consent: boolean
 }
 
 type Errors = Partial<Record<keyof FormState, string>>
 
 const initial: FormState = {
+  email: '',
   eventType: '',
   attendeeCount: '',
   eventName: '',
   addOns: [],
+  consent: false,
 }
 
 const eventTypes = [
@@ -79,9 +83,11 @@ const ArrowRight = () => (
 
 const validate = (s: FormState, t: (key: string) => string): Errors => {
   const e: Errors = {}
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email)) e.email = t('create.error.email')
   if (!s.eventType) e.eventType = t('create.error.eventType')
   if (!s.attendeeCount) e.attendeeCount = t('create.error.attendeeCount')
   if (!s.eventName.trim()) e.eventName = t('create.error.eventName')
+  if (!s.consent) e.consent = t('create.error.consent')
   return e
 }
 
@@ -90,15 +96,19 @@ export default function StartForm() {
   const [form, setForm] = useState<FormState>(initial)
   const [errors, setErrors] = useState<Errors>({})
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const updateText = (key: keyof FormState) => (ev: ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [key]: ev.target.value }))
     if (errors[key]) setErrors(prev => ({ ...prev, [key]: undefined }))
+    if (submitError) setSubmitError('')
   }
 
   const select = (key: keyof FormState, value: string) => {
     setForm(prev => ({ ...prev, [key]: value }))
     if (errors[key]) setErrors(prev => ({ ...prev, [key]: undefined }))
+    if (submitError) setSubmitError('')
   }
 
   const toggleAddOn = (value: string) => {
@@ -108,17 +118,50 @@ export default function StartForm() {
         ? prev.addOns.filter(addOn => addOn !== value)
         : [...prev.addOns, value],
     }))
+    if (submitError) setSubmitError('')
   }
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
     const next = validate(form, t)
     if (Object.keys(next).length) {
       setErrors(next)
       return
     }
-    setSubmitted(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    setSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const selectedAddOns = addOns
+        .filter(addOn => form.addOns.includes(addOn.value))
+        .map(addOn => `${addOn.title} (${addOn.price})`)
+
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: form.email,
+          eventType: form.eventType,
+          guestCount: form.attendeeCount,
+          consent: form.consent,
+          notes: [
+            `Event name: ${form.eventName}`,
+            selectedAddOns.length ? `Selected add-ons: ${selectedAddOns.join(', ')}` : '',
+          ].filter(Boolean).join('\n'),
+          startedAt: Date.now() - 3000,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Lead submission failed')
+
+      setSubmitted(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch {
+      setSubmitError(t('start.submitError'))
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -143,6 +186,21 @@ export default function StartForm() {
                 <div className="start-form-header">
                   <h2 className="start-form-title">{t('create.form.title')}</h2>
                   <p className="start-form-sub">{t('create.form.sub')}</p>
+                </div>
+
+                <div className="start-grid">
+                  <div className="start-field start-field-full">
+                    <label htmlFor="email">{t('start.email')} <span className="req">*</span></label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={form.email}
+                      onChange={updateText('email')}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-err' : undefined}
+                    />
+                    {errors.email && <span className="start-error" id="email-err">{errors.email}</span>}
+                  </div>
                 </div>
 
                 <fieldset className="create-question">
@@ -241,10 +299,26 @@ export default function StartForm() {
                   </div>
                 </section>
 
-                <button type="submit" className="btn btn-primary start-submit">
-                  {t('create.continue')}
+                <label className="start-consent">
+                  <input
+                    type="checkbox"
+                    checked={form.consent}
+                    onChange={(ev) => {
+                      setForm(prev => ({ ...prev, consent: ev.target.checked }))
+                      if (errors.consent) setErrors(prev => ({ ...prev, consent: undefined }))
+                      if (submitError) setSubmitError('')
+                    }}
+                    aria-invalid={!!errors.consent}
+                  />
+                  <span>{t('create.consent')}</span>
+                </label>
+                {errors.consent && <span className="start-error">{errors.consent}</span>}
+
+                <button type="submit" className="btn btn-primary start-submit" disabled={submitting}>
+                  {submitting ? t('start.submitting') : t('create.continue')}
                   <ArrowRight />
                 </button>
+                {submitError && <div className="start-submit-error" role="alert">{submitError}</div>}
               </form>
             )}
           </div>

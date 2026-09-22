@@ -18,6 +18,10 @@ type Payload = {
 }
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
+  'weddings-private': 'Weddings & Private Events',
+  'corporate-brand': 'Corporate & Brand Events',
+  'festivals-concerts': 'Festivals & Concerts',
+  'sports-competitions': 'Sports & Competitions',
   wedding: 'Wedding / Private Event',
   corporate: 'Corporate / Brand Event',
   festival: 'Festival / Concert',
@@ -26,13 +30,8 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const digitCount = (s: string) => s.replace(/\D/g, '').length
 const ok = (s: unknown): s is string => typeof s === 'string' && s.trim().length > 0
 const isValidEmail = (s: string) => EMAIL_RE.test(s)
-const isValidPhone = (s: string) => {
-  const n = digitCount(s)
-  return n >= 7 && n <= 15
-}
 
 // Trim, cap length, strip control chars. Defends against header injection in subject/body.
 // eslint-disable-next-line no-control-regex
@@ -106,18 +105,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Server-side validation (mirrors client).
   const fieldErrors: string[] = []
-  if (!ok(body.fullName)) fieldErrors.push('fullName')
   if (!ok(body.email) || !isValidEmail(body.email!)) fieldErrors.push('email')
-  if (!ok(body.phone) || !isValidPhone(body.phone!)) fieldErrors.push('phone')
   if (!ok(body.eventType)) fieldErrors.push('eventType')
   if (body.consent !== true) fieldErrors.push('consent')
   if (fieldErrors.length) {
     return res.status(400).json({ error: 'Validation failed', fields: fieldErrors })
   }
 
-  const fullName = clean(body.fullName!)
   const email = clean(body.email!, 200)
-  const phone = clean(body.phone!, 60)
   const company = body.company ? clean(body.company) : ''
   const eventTypeRaw = clean(body.eventType!, 60)
   const eventType = EVENT_TYPE_LABELS[eventTypeRaw] || eventTypeRaw
@@ -130,9 +125,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const textLines = [
     'New Start for Free Request — Photify',
     '',
-    `Full name: ${fullName}`,
     `Email: ${email}`,
-    `Phone: ${phone}`,
     company ? `Company / Organization: ${company}` : null,
     `Event type: ${eventType}`,
     eventDate ? `Event date: ${eventDate}` : null,
@@ -153,9 +146,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     </div>
     <div style="padding:8px 24px 16px;">
       <table style="width:100%;border-collapse:collapse;">
-        ${row('Full name', fullName)}
         ${row('Email', email)}
-        ${row('Phone', phone)}
         ${company ? row('Company', company) : ''}
         ${row('Event type', eventType)}
         ${eventDate ? row('Event date', eventDate) : ''}
