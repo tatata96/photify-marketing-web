@@ -1964,21 +1964,29 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-/* Android "coming soon" badge — Hero */
-.badge-android-soon {
+/* Google Play button — Hero */
+.btn-googleplay {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  background: transparent;
-  color: var(--secondary);
-  border: 1.5px dashed var(--border);
+  padding: 12px 22px;
+  background: #111;
+  color: #fff;
+  border: none;
   border-radius: 10px;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  text-decoration: none;
   white-space: nowrap;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.btn-googleplay:hover {
+  background: #222;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* App Store button — Navbar */
@@ -1988,12 +1996,18 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   gap: 6px;
 }
 
-/* App Store badge — Footer */
+.footer-store-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* App store badges — Footer */
 .footer-appstore-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 16px;
   padding: 9px 18px;
   background: #111;
   color: #fff;

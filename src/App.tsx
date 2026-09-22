@@ -7,7 +7,6 @@ import Problem from './components/Problem'
 import Solution from './components/Solution'
 import Features from './components/Features'
 import EventTypes from './components/EventTypes'
-import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
@@ -87,7 +86,6 @@ function App() {
           <Solution />
           <Features />
           <EventTypes />
-          <ForOrganizers />
           <Privacy />
           <FAQ />
           <Contact />

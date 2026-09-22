@@ -130,7 +130,7 @@ const en: Dict = {
 
   // App Store
   'appstore.cta': 'Get the App',
-  'android.comingSoon': 'Android — Coming Soon',
+  'googleplay.cta': 'Google Play',
 
   // Footer
   'footer.tagline': 'AI-powered event photography that delivers every photo to the right person, instantly.',
@@ -319,7 +319,7 @@ const tr: Dict = {
 
   // App Store
   'appstore.cta': 'Uygulamayı İndir',
-  'android.comingSoon': 'Android — Yakında',
+  'googleplay.cta': 'Google Play',
 
   // Footer
   'footer.tagline': 'Her fotoğrafı doğru kişiye anında ulaştıran yapay zeka destekli etkinlik fotoğrafçılığı.',
