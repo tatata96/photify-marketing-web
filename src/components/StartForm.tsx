@@ -2,80 +2,86 @@ import { useState, type FormEvent, type ChangeEvent } from 'react'
 import { useT } from '../i18n'
 
 type FormState = {
-  fullName: string
-  email: string
-  phone: string
-  company: string
   eventType: string
-  eventDate: string
-  guestCount: string
-  city: string
-  notes: string
-  consent: boolean
+  attendeeCount: string
+  eventName: string
+  addOns: string[]
 }
 
 type Errors = Partial<Record<keyof FormState, string>>
 
 const initial: FormState = {
-  fullName: '',
-  email: '',
-  phone: '',
-  company: '',
   eventType: '',
-  eventDate: '',
-  guestCount: '',
-  city: '',
-  notes: '',
-  consent: false,
+  attendeeCount: '',
+  eventName: '',
+  addOns: [],
 }
 
 const eventTypes = [
-  { value: 'wedding', label: 'Düğün / Özel Etkinlik' },
-  { value: 'corporate', label: 'Kurumsal / Marka Etkinliği' },
-  { value: 'festival', label: 'Festival / Konser' },
-  { value: 'sports', label: 'Spor / Yarışma' },
-  { value: 'other', label: 'Diğer' },
+  { value: 'weddings-private', icon: '💍', titleKey: 'events.e1.title', subKey: 'events.e1.sub' },
+  { value: 'corporate-brand', icon: '🏢', titleKey: 'events.e2.title', subKey: 'events.e2.sub' },
+  { value: 'festivals-concerts', icon: '🎪', titleKey: 'events.e3.title', subKey: 'events.e3.sub' },
+  { value: 'sports-competitions', icon: '🏆', titleKey: 'events.e4.title', subKey: 'events.e4.sub' },
 ]
 
-const guestRanges = [
-  { value: '1-50', label: '1 – 50' },
-  { value: '51-200', label: '51 – 200' },
-  { value: '201-500', label: '201 – 500' },
-  { value: '501-1000', label: '501 – 1,000' },
-  { value: '1000+', label: '1,000+' },
+const attendeeRanges = [
+  { value: 'under-50', label: '<50' },
+  { value: '50-200', label: '50-200' },
+  { value: '200-500', label: '200-500' },
+  { value: '500-plus', label: '500+' },
 ]
 
-const benefitKeys = [
-  'start.benefit1',
-  'start.benefit2',
-  'start.benefit3',
-  'start.benefit4',
+const addOns = [
+  {
+    value: 'onsite-support',
+    title: 'Yerinde kurulum ve canlı destek',
+    price: '+₺4.500',
+    description: 'Ekibimiz etkinlik günü alanda olur, QR noktalarını kurar, fotoğrafçıdan yüklemeyi devralır.',
+  },
+  {
+    value: 'branded-welcome',
+    title: 'Markalı karşılama ekranı ve özel QR',
+    price: '+₺750',
+    description: 'Katılımcı sizin logonuzla karşılanır, QR masa kartı tasarımı dahil.',
+  },
+  {
+    value: 'photo-sales-watermark',
+    title: 'Fotoğraf satışı ve filigran',
+    price: '+₺1.000',
+    description: 'Katılımcı yüksek çözünürlüklü kareyi satın alana kadar filigranlı görür.',
+  },
+  {
+    value: 'extra-storage',
+    title: 'Ek 100 GB depolama',
+    price: '+₺600',
+    description: 'Uzun süren ya da çok kameralı etkinlikler için.',
+  },
+  {
+    value: 'video-face-matching',
+    title: 'Video içinde yüz eşleştirme',
+    price: 'yakında',
+    description: 'Geliştirme aşamasında, 2026 sonunda açılıyor.',
+    disabled: true,
+  },
 ]
 
 const Check = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
-// Email: simple but covers the realistic cases.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-// Phone: lenient international check — must contain 7–15 digits after stripping non-digits.
-const phoneDigitCount = (s: string) => s.replace(/\D/g, '').length
-const isValidPhone = (s: string) => {
-  const n = phoneDigitCount(s)
-  return n >= 7 && n <= 15
-}
+const ArrowRight = () => (
+  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
 
-const validate = (s: FormState): Errors => {
+const validate = (s: FormState, t: (key: string) => string): Errors => {
   const e: Errors = {}
-  if (!s.fullName.trim()) e.fullName = 'Adınızı girin.'
-  if (!s.email.trim()) e.email = 'E-posta adresinizi girin.'
-  else if (!EMAIL_RE.test(s.email)) e.email = 'Geçerli bir e-posta adresi girin.'
-  if (!s.phone.trim()) e.phone = 'Telefon numaranızı girin.'
-  else if (!isValidPhone(s.phone)) e.phone = 'Geçerli bir telefon numarası girin.'
-  if (!s.eventType) e.eventType = 'Etkinlik türünü seçin.'
-  if (!s.consent) e.consent = 'Devam etmek için onay vermeniz gerekir.'
+  if (!s.eventType) e.eventType = t('create.error.eventType')
+  if (!s.attendeeCount) e.attendeeCount = t('create.error.attendeeCount')
+  if (!s.eventName.trim()) e.eventName = t('create.error.eventName')
   return e
 }
 
@@ -84,55 +90,35 @@ export default function StartForm() {
   const [form, setForm] = useState<FormState>(initial)
   const [errors, setErrors] = useState<Errors>({})
   const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState<string | null>(null)
-  // Captured once on first render — used to reject sub-2s bot submits server-side.
-  const [startedAt] = useState<number>(() => Date.now())
-  // Honeypot — bots fill hidden fields; real users don't.
-  const [honeypot, setHoneypot] = useState('')
 
-  const update = (key: keyof FormState) => (ev: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const value = ev.target.type === 'checkbox'
-      ? (ev.target as HTMLInputElement).checked
-      : ev.target.value
+  const updateText = (key: keyof FormState) => (ev: ChangeEvent<HTMLInputElement>) => {
+    setForm(prev => ({ ...prev, [key]: ev.target.value }))
+    if (errors[key]) setErrors(prev => ({ ...prev, [key]: undefined }))
+  }
+
+  const select = (key: keyof FormState, value: string) => {
     setForm(prev => ({ ...prev, [key]: value }))
     if (errors[key]) setErrors(prev => ({ ...prev, [key]: undefined }))
   }
 
-  const onSubmit = async (e: FormEvent) => {
+  const toggleAddOn = (value: string) => {
+    setForm(prev => ({
+      ...prev,
+      addOns: prev.addOns.includes(value)
+        ? prev.addOns.filter(addOn => addOn !== value)
+        : [...prev.addOns, value],
+    }))
+  }
+
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-    if (submitting) return
-    const next = validate(form)
+    const next = validate(form, t)
     if (Object.keys(next).length) {
       setErrors(next)
       return
     }
-    setSubmitError(null)
-    setSubmitting(true)
-
-    try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          website: honeypot,
-          startedAt,
-        }),
-      })
-      if (!res.ok) throw new Error(`Request failed: ${res.status}`)
-      setSubmitted(true)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } catch (err) {
-      console.error(err)
-      setSubmitError(t('start.submitError'))
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
-  const goHome = () => {
-    window.location.hash = ''
+    setSubmitted(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -141,224 +127,123 @@ export default function StartForm() {
       <div className="start-bg-glow" />
 
       <div className="container">
-        <a className="start-back" href="#" onClick={(e) => { e.preventDefault(); goHome() }}>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M13 8H3M7 4L3 8L7 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          {t('start.back')}
-        </a>
-
-        <div className="start-inner">
-          <aside className="start-left">
-            <div className="section-label">{t('start.label')}</div>
-            <h1 className="start-heading">{t('start.heading.l1')}<br />{t('start.heading.l2')}</h1>
-            <p className="start-sub">
-              {t('start.sub')}
-            </p>
-
-            <ul className="start-benefits">
-              {benefitKeys.map((bk) => (
-                <li key={bk}>
-                  <span className="start-benefit-icon"><Check /></span>
-                  <span>{t(bk)}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="start-trust">
-              <div className="privacy-badge">{t('priv.badge')}</div>
-              <p className="start-trust-note">
-                {t('start.trustNote')}
-              </p>
-            </div>
-          </aside>
-
-          <div className="start-card">
+        <div className="start-inner create-inner">
+          <div className="start-card create-card">
             {submitted ? (
               <div className="start-success" role="status" aria-live="polite">
-                <div className="start-success-icon">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h2 className="start-success-title">{t('start.success.title')}</h2>
-                <p className="start-success-text">
-                  {t('start.success.text')}
-                </p>
-                <button type="button" className="btn btn-outline" onClick={goHome}>
-                  {t('start.backToHome')}
+                <div className="start-success-icon"><Check /></div>
+                <h2 className="start-success-title">{t('create.success.title')}</h2>
+                <p className="start-success-text">{t('create.success.text')}</p>
+                <button type="button" className="btn btn-outline" onClick={() => setSubmitted(false)}>
+                  {t('create.editAnswers')}
                 </button>
               </div>
             ) : (
-              <form className="start-form" onSubmit={onSubmit} noValidate>
+              <form className="start-form create-form" onSubmit={onSubmit} noValidate>
                 <div className="start-form-header">
-                  <h2 className="start-form-title">{t('start.form.title')}</h2>
-                  <p className="start-form-sub">{t('start.form.sub')}</p>
+                  <h2 className="start-form-title">{t('create.form.title')}</h2>
+                  <p className="start-form-sub">{t('create.form.sub')}</p>
                 </div>
 
-                {/* Honeypot: hidden from users, off the tab order, ignored by screen readers. */}
-                <div className="start-honeypot" aria-hidden="true">
-                  <label htmlFor="website">Website</label>
+                <fieldset className="create-question">
+                  <legend><span>1</span>{t('create.eventType')}</legend>
+                  <div className="create-event-grid" role="radiogroup" aria-describedby={errors.eventType ? 'eventType-err' : undefined}>
+                    {eventTypes.map((type) => {
+                      const selected = form.eventType === type.value
+                      return (
+                        <button
+                          key={type.value}
+                          type="button"
+                          className={`create-option create-event-option${selected ? ' is-selected' : ''}`}
+                          onClick={() => select('eventType', type.value)}
+                          role="radio"
+                          aria-checked={selected}
+                        >
+                          <span className="create-option-icon" aria-hidden="true">{type.icon}</span>
+                          <span className="create-option-copy">
+                            <strong>{t(type.titleKey)}</strong>
+                            <small>{t(type.subKey)}</small>
+                          </span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                  {errors.eventType && <span className="start-error" id="eventType-err">{errors.eventType}</span>}
+                </fieldset>
+
+                <fieldset className="create-question">
+                  <legend><span>2</span>{t('create.attendeeCount')}</legend>
+                  <div className="create-count-grid" role="radiogroup" aria-describedby={errors.attendeeCount ? 'attendeeCount-err' : undefined}>
+                    {attendeeRanges.map((range) => {
+                      const selected = form.attendeeCount === range.value
+                      return (
+                        <button
+                          key={range.value}
+                          type="button"
+                          className={`create-option create-count-option${selected ? ' is-selected' : ''}`}
+                          onClick={() => select('attendeeCount', range.value)}
+                          role="radio"
+                          aria-checked={selected}
+                        >
+                          {range.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                  {errors.attendeeCount && <span className="start-error" id="attendeeCount-err">{errors.attendeeCount}</span>}
+                </fieldset>
+
+                <div className="create-question">
+                  <label className="create-label" htmlFor="eventName">
+                    <span>3</span>{t('create.eventName')}
+                  </label>
                   <input
-                    id="website"
+                    id="eventName"
+                    className="create-event-name"
                     type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={honeypot}
-                    onChange={(e) => setHoneypot(e.target.value)}
+                    value={form.eventName}
+                    onChange={updateText('eventName')}
+                    placeholder={t('create.eventName.placeholder')}
+                    aria-invalid={!!errors.eventName}
+                    aria-describedby={errors.eventName ? 'eventName-err' : undefined}
                   />
+                  {errors.eventName && <span className="start-error" id="eventName-err">{errors.eventName}</span>}
                 </div>
 
-                <div className="start-grid">
-                  <div className="start-field start-field-full">
-                    <label htmlFor="fullName">{t('start.fullName')} <span className="req">*</span></label>
-                    <input
-                      id="fullName"
-                      type="text"
-                      autoComplete="name"
-                      value={form.fullName}
-                      onChange={update('fullName')}
-                      aria-invalid={!!errors.fullName}
-                      aria-describedby={errors.fullName ? 'fullName-err' : undefined}
-                    />
-                    {errors.fullName && <span className="start-error" id="fullName-err">{errors.fullName}</span>}
+                <section className="create-addons" aria-labelledby="addons-title">
+                  <h3 id="addons-title">Eklemek istedikleriniz</h3>
+                  <div className="create-addons-list">
+                    {addOns.map((addOn) => {
+                      const selected = form.addOns.includes(addOn.value)
+                      return (
+                        <button
+                          key={addOn.value}
+                          type="button"
+                          className={`create-addon${selected ? ' is-selected' : ''}${addOn.disabled ? ' is-disabled' : ''}`}
+                          onClick={() => !addOn.disabled && toggleAddOn(addOn.value)}
+                          role="checkbox"
+                          aria-checked={selected}
+                          aria-disabled={addOn.disabled || undefined}
+                        >
+                          <span className="create-addon-check">
+                            {!addOn.disabled && selected && <Check />}
+                          </span>
+                          <span className="create-addon-copy">
+                            <span className="create-addon-top">
+                              <strong>{addOn.title}</strong>
+                              <span>{addOn.price}</span>
+                            </span>
+                            <small>{addOn.description}</small>
+                          </span>
+                        </button>
+                      )
+                    })}
                   </div>
+                </section>
 
-                  <div className="start-field">
-                    <label htmlFor="email">{t('start.email')} <span className="req">*</span></label>
-                    <input
-                      id="email"
-                      type="email"
-                      autoComplete="email"
-                      value={form.email}
-                      onChange={update('email')}
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? 'email-err' : undefined}
-                    />
-                    {errors.email && <span className="start-error" id="email-err">{errors.email}</span>}
-                  </div>
-
-                  <div className="start-field">
-                    <label htmlFor="phone">{t('start.phone')} <span className="req">*</span></label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder="+90 ..."
-                      value={form.phone}
-                      onChange={update('phone')}
-                      aria-invalid={!!errors.phone}
-                      aria-describedby={errors.phone ? 'phone-err' : undefined}
-                    />
-                    {errors.phone && <span className="start-error" id="phone-err">{errors.phone}</span>}
-                  </div>
-
-                  <div className="start-field start-field-full">
-                    <label htmlFor="company">{t('start.company')}</label>
-                    <input
-                      id="company"
-                      type="text"
-                      autoComplete="organization"
-                      value={form.company}
-                      onChange={update('company')}
-                    />
-                  </div>
-
-                  <div className="start-field">
-                    <label htmlFor="eventType">{t('start.eventType')} <span className="req">*</span></label>
-                    <select
-                      id="eventType"
-                      value={form.eventType}
-                      onChange={update('eventType')}
-                      aria-invalid={!!errors.eventType}
-                      aria-describedby={errors.eventType ? 'eventType-err' : undefined}
-                    >
-                      <option value="">{t('start.selectPlaceholder')}</option>
-                      {eventTypes.map(t => (
-                        <option key={t.value} value={t.value}>{t.label}</option>
-                      ))}
-                    </select>
-                    {errors.eventType && <span className="start-error" id="eventType-err">{errors.eventType}</span>}
-                  </div>
-
-                  <div className="start-field">
-                    <label htmlFor="eventDate">{t('start.eventDate')}</label>
-                    <input
-                      id="eventDate"
-                      type="date"
-                      value={form.eventDate}
-                      onChange={update('eventDate')}
-                    />
-                  </div>
-
-                  <div className="start-field">
-                    <label htmlFor="guestCount">{t('start.guestCount')}</label>
-                    <select
-                      id="guestCount"
-                      value={form.guestCount}
-                      onChange={update('guestCount')}
-                    >
-                      <option value="">{t('start.selectPlaceholder')}</option>
-                      {guestRanges.map(g => (
-                        <option key={g.value} value={g.value}>{g.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="start-field">
-                    <label htmlFor="city">{t('start.city')}</label>
-                    <input
-                      id="city"
-                      type="text"
-                      autoComplete="address-level2"
-                      value={form.city}
-                      onChange={update('city')}
-                      placeholder={t('start.city.placeholder')}
-                    />
-                  </div>
-
-                  <div className="start-field start-field-full">
-                    <label htmlFor="notes">{t('start.notes')}</label>
-                    <textarea
-                      id="notes"
-                      rows={4}
-                      value={form.notes}
-                      onChange={update('notes')}
-                      placeholder={t('start.notes.placeholder')}
-                    />
-                  </div>
-
-                  <div className="start-field start-field-full">
-                    <label className="start-consent">
-                      <input
-                        type="checkbox"
-                        checked={form.consent}
-                        onChange={update('consent')}
-                        aria-invalid={!!errors.consent}
-                        aria-describedby={errors.consent ? 'consent-err' : undefined}
-                      />
-                      <span>
-                        <a href="/legal/Photify_KVKK_GDPR_Aydinlatma_Metni_v2.2.pdf" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a>
-                        {' '}ve{' '}
-                        <a href="/legal/Photify_Uyelik_Sozlesmesi_Kullanim_Kosullari_v1.2.pdf" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a>
-                        'nı okudum ve kabul ediyorum. <span className="req">*</span>
-                      </span>
-                    </label>
-                    {errors.consent && <span className="start-error" id="consent-err">{errors.consent}</span>}
-                  </div>
-                </div>
-
-                {submitError && (
-                  <div className="start-submit-error" role="alert">{submitError}</div>
-                )}
-
-                <button type="submit" className="btn btn-primary start-submit" disabled={submitting}>
-                  {submitting ? t('start.submitting') : t('start.continue')}
-                  {!submitting && (
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
+                <button type="submit" className="btn btn-primary start-submit">
+                  {t('create.continue')}
+                  <ArrowRight />
                 </button>
               </form>
             )}

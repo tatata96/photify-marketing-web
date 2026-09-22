@@ -5,6 +5,11 @@ import { useT } from '../i18n'
 export default function Hero() {
   const { t } = useT()
 
+  const goCreateEvent = () => {
+    window.history.pushState({}, '', '/create-event')
+    window.dispatchEvent(new PopStateEvent('popstate'))
+  }
+
   return (
     <section className="hero" id="hero">
       <div className="hero-bg-glow" />
@@ -28,6 +33,13 @@ export default function Hero() {
             </p>
 
             <div className="hero-actions">
+              <button
+                type="button"
+                className="btn btn-primary hero-create-event"
+                onClick={goCreateEvent}
+              >
+                {t('hero.cta.createEvent')}
+              </button>
               <a
                 className="btn-appstore"
                 href="https://apps.apple.com/tr/app/photify/id6779256503"

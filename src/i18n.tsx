@@ -17,6 +17,7 @@ const en: Dict = {
   'hero.headline.l2': 'Get every photo',
   'hero.headline.l3': "you're in.",
   'hero.subtext': 'Scan a QR code, join instantly. AI finds your face and creates your personal photo album. No chaos, no manual sorting — just your memories, delivered.',
+  'hero.cta.createEvent': 'Create Event',
   'hero.cta.organizers': 'For Organizers',
   'hero.stat.events': 'Events Powered',
   'hero.stat.photos': 'Photos Delivered',
@@ -129,7 +130,7 @@ const en: Dict = {
   'cta.scheduleDemo': 'Schedule a Demo',
 
   // App Store
-  'appstore.cta': 'Get the App',
+  'appstore.cta': 'App Store',
   'googleplay.cta': 'Google Play',
 
   // Footer
@@ -174,6 +175,29 @@ const en: Dict = {
   'start.continue': 'Continue',
   'start.submitError': 'Something went wrong. Please try again or contact us at info@photify.com.',
 
+  // Create Event
+  'create.label': 'Create Event',
+  'create.heading.l1': 'Tell us about',
+  'create.heading.l2': 'your event',
+  'create.sub': 'Answer three quick questions so Photify can shape the right photo experience for your guests.',
+  'create.benefit1': 'Choose the event style',
+  'create.benefit2': 'Estimate the audience size',
+  'create.benefit3': 'Name the event guests will recognize',
+  'create.trustNote': 'These answers are only used to prepare the best Photify setup for your event.',
+  'create.form.title': 'Event setup',
+  'create.form.sub': 'Start with the essentials. You can refine details later.',
+  'create.eventType': 'Event type',
+  'create.attendeeCount': 'Attendee count',
+  'create.eventName': 'Name of the event',
+  'create.eventName.placeholder': 'e.g. Atlas Summit 2026',
+  'create.continue': 'Continue',
+  'create.success.title': 'Event basics saved',
+  'create.success.text': 'Great start. These answers are ready for the next step of the event creation flow.',
+  'create.editAnswers': 'Edit answers',
+  'create.error.eventType': 'Choose an event type.',
+  'create.error.attendeeCount': 'Choose an attendee range.',
+  'create.error.eventName': 'Enter the event name.',
+
   // Contact
   'contact.label': 'Contact',
   'contact.heading': 'Get in Touch',
@@ -206,6 +230,7 @@ const tr: Dict = {
   'hero.headline.l2': 'Olduğun her fotoğrafı',
   'hero.headline.l3': 'hemen bul.',
   'hero.subtext': 'QR kodu okutun, anında katılın. Yapay zeka teknolojimiz her fotoğrafın doğru kişiye hızlı ve güvenli bir şekilde ulaşmasını sağlar. Yüzünüzü bulur ve kişisel fotoğraf albümünüzü oluşturur. Karmaşa yok, manuel ayıklama yok.',
+  'hero.cta.createEvent': 'Etkinlik Oluştur',
   'hero.cta.organizers': 'Organizatörler için',
   'hero.stat.events': 'Düzenlenen Etkinlik',
   'hero.stat.photos': 'Teslim Edilen Fotoğraf',
@@ -318,7 +343,7 @@ const tr: Dict = {
   'cta.scheduleDemo': 'Demo Planla',
 
   // App Store
-  'appstore.cta': 'Uygulamayı İndir',
+  'appstore.cta': 'App Store',
   'googleplay.cta': 'Google Play',
 
   // Footer
@@ -362,6 +387,29 @@ const tr: Dict = {
   'start.submitting': 'Gönderiliyor…',
   'start.continue': 'Devam Et',
   'start.submitError': 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya info@photify.com adresinden bizimle iletişime geçin.',
+
+  // Create Event
+  'create.label': 'Etkinlik Oluştur',
+  'create.heading.l1': 'Etkinliğinizi',
+  'create.heading.l2': 'anlatalım',
+  'create.sub': 'Photify’ın misafirleriniz için doğru fotoğraf deneyimini hazırlayabilmesi için üç hızlı soruyu yanıtlayın.',
+  'create.benefit1': 'Etkinlik tarzını seçin',
+  'create.benefit2': 'Katılımcı sayısını tahmin edin',
+  'create.benefit3': 'Misafirlerin tanıyacağı etkinlik adını yazın',
+  'create.trustNote': 'Bu yanıtlar yalnızca etkinliğiniz için en doğru Photify kurulumunu hazırlamak amacıyla kullanılır.',
+  'create.form.title': 'Etkinlik kurulumu',
+  'create.form.sub': 'Temel bilgilerle başlayın. Detayları daha sonra geliştirebilirsiniz.',
+  'create.eventType': 'Etkinlik türü',
+  'create.attendeeCount': 'Katılımcı sayısı',
+  'create.eventName': 'Etkinliğin adı',
+  'create.eventName.placeholder': 'Örn. Atlas Summit 2026',
+  'create.continue': 'Devam Et',
+  'create.success.title': 'Etkinlik temeli kaydedildi',
+  'create.success.text': 'Harika başlangıç. Bu yanıtlar etkinlik oluşturma akışının bir sonraki adımı için hazır.',
+  'create.editAnswers': 'Yanıtları düzenle',
+  'create.error.eventType': 'Bir etkinlik türü seçin.',
+  'create.error.attendeeCount': 'Bir katılımcı aralığı seçin.',
+  'create.error.eventName': 'Etkinlik adını girin.',
 
   // Contact
   'contact.label': 'İletişim',
