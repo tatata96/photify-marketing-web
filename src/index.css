@@ -1999,15 +1999,6 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   font-size: 0.8rem;
   line-height: 1.5;
 }
-.create-addons-note {
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 210, 63, 0.36);
-  border-radius: var(--radius-sm);
-  background: var(--yellow-light);
-  color: var(--text);
-  font-size: 0.82rem;
-  line-height: 1.55;
-}
 
 /* Honeypot — must be visually hidden but still focusable in the DOM for bots. */
 .start-honeypot {
