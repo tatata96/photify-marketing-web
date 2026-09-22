@@ -15,7 +15,10 @@ assert.ok(appSource.includes('<JoinEventPage eventCodeParam={joinEventCode} />')
 assert.equal('/join/ABC123'.match(/^\/join\/(.+)$/)?.[1], 'ABC123', 'route extracts ABC123')
 assert.equal('/join'.match(/^\/join\/(.+)$/)?.[1], undefined, 'missing code is detected')
 assert.ok(joinPageSource.includes('decodeURIComponent(value)'), 'event code is safely decoded')
+assert.ok(joinPageSource.includes('photify://join/${encodeURIComponent(eventCode)}'), 'Open Photify uses the encoded custom scheme')
 assert.ok(joinPageSource.includes('Event link is missing a code'), 'missing code error is rendered')
+assert.ok(!joinPageSource.includes('setTimeout('), 'join page does not use timer-based app open attempts')
+assert.ok(!joinPageSource.includes('window.location'), 'join page does not automatically redirect to the app')
 
 assert.ok(
   vercelConfig.rewrites.some(

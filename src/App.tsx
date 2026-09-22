@@ -7,13 +7,11 @@ import Problem from './components/Problem'
 import Solution from './components/Solution'
 import Features from './components/Features'
 import EventTypes from './components/EventTypes'
-import ForOrganizers from './components/ForOrganizers'
 import Privacy from './components/Privacy'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-// TODO: Enable the start/contact form again when lead capture is ready.
-// import StartForm from './components/StartForm'
+import StartForm from './components/StartForm'
 import PrivacyPage from './components/PrivacyPage'
 import SupportPage from './components/SupportPage'
 import JoinEventPage from './components/JoinEventPage'
@@ -22,6 +20,7 @@ const getRoute = () => {
   const path = window.location.pathname.replace(/\/+$/, '')
   if (path === '/privacy') return '/privacy'
   if (path === '/support') return '/support'
+  if (path === '/create-event') return '/create-event'
   if (path === '/join' || path.startsWith('/join/')) return path
   return window.location.hash.replace(/^#/, '') || '/'
 }
@@ -61,8 +60,7 @@ function App() {
     return () => observer.disconnect()
   }, [route])
 
-  // TODO: Enable the start/contact form route again when lead capture is ready.
-  // const isStart = route === 'start' || route === '/start'
+  const isCreateEvent = route === '/create-event' || route === 'create-event' || route === '/start' || route === 'start'
   const isPrivacyPage = route === '/privacy'
   const isSupportPage = route === '/support'
   const isJoinEventPage = route === '/join' || route.startsWith('/join/')
@@ -77,9 +75,8 @@ function App() {
         <SupportPage />
       ) : isJoinEventPage ? (
         <JoinEventPage eventCodeParam={joinEventCode} />
-      // TODO: Enable the start/contact form again when lead capture is ready.
-      // ) : isStart ? (
-      //   <StartForm />
+      ) : isCreateEvent ? (
+        <StartForm />
       ) : (
         <>
           <Hero />
@@ -87,7 +84,6 @@ function App() {
           <Solution />
           <Features />
           <EventTypes />
-          <ForOrganizers />
           <Privacy />
           <FAQ />
           <Contact />

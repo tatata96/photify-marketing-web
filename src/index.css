@@ -416,6 +416,9 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   padding: 14px 28px;
   font-size: 0.92rem;
 }
+.hero-create-event {
+  min-height: 46px;
+}
 /* Hero image panel */
 .hero-visual {
   position: relative;
@@ -1750,6 +1753,253 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   line-height: 1.5;
 }
 
+/* Create event questionnaire */
+.create-inner {
+  display: flex;
+  justify-content: center;
+}
+.create-card {
+  width: min(100%, 760px);
+  border-radius: var(--radius-sm);
+}
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.create-question {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  border: 0;
+}
+.create-question legend,
+.create-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--black);
+}
+.create-question legend {
+  margin-bottom: 16px;
+}
+.create-question legend span,
+.create-label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+.create-event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.create-count-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.create-option {
+  width: 100%;
+  min-width: 0;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  text-align: left;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.create-option:hover {
+  border-color: rgba(17, 17, 17, 0.32);
+  background: var(--card-hover);
+  transform: translateY(-1px);
+}
+.create-option:focus-visible,
+.create-event-name:focus-visible {
+  outline: none;
+  border-color: var(--yellow-dark);
+  box-shadow: 0 0 0 4px var(--yellow-light);
+}
+.create-option.is-selected {
+  border-color: var(--yellow-dark);
+  background: var(--yellow-light);
+  box-shadow: inset 0 0 0 1px rgba(232, 184, 0, 0.18);
+}
+.create-event-option {
+  min-height: 58px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.create-option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  font-size: 0.98rem;
+  flex-shrink: 0;
+}
+.create-option-copy {
+  min-width: 0;
+}
+.create-option-copy strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--black);
+}
+.create-option-copy small {
+  display: none;
+  color: var(--secondary);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+.create-count-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.create-event-name {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 15px;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.create-event-name[aria-invalid="true"] {
+  border-color: #d33;
+}
+.create-addons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+.create-addons h3 {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1.25;
+}
+.create-addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.create-addon {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  padding: 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  text-align: left;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.create-addon:hover {
+  border-color: rgba(17, 17, 17, 0.32);
+  background: var(--card-hover);
+  transform: translateY(-1px);
+}
+.create-addon:focus-visible {
+  outline: none;
+  border-color: var(--yellow-dark);
+  box-shadow: 0 0 0 4px var(--yellow-light);
+}
+.create-addon.is-selected {
+  border-color: var(--yellow-dark);
+  background: var(--yellow-light);
+}
+.create-addon.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+.create-addon.is-disabled:hover {
+  border-color: var(--border);
+  background: var(--bg);
+  transform: none;
+}
+.create-addon-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  color: var(--black);
+  background: var(--bg);
+  flex-shrink: 0;
+}
+.create-addon.is-selected .create-addon-check {
+  background: var(--yellow);
+  border-color: var(--yellow-dark);
+}
+.create-addon-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+.create-addon-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.create-addon-top strong {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1.25;
+}
+.create-addon-top span {
+  color: var(--black);
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.create-addon-copy small {
+  color: var(--secondary);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 /* Honeypot — must be visually hidden but still focusable in the DOM for bots. */
 .start-honeypot {
   position: absolute !important;
@@ -1797,12 +2047,20 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
 @media (max-width: 1024px) {
   .start-inner { grid-template-columns: 1fr; gap: 48px; }
   .start-left { position: static; }
+  .create-inner { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   .start { padding: 110px 0 64px; }
   .start-card { padding: 28px 22px; }
   .start-grid { grid-template-columns: 1fr; gap: 16px; }
   .start-sub { max-width: none; }
+  .create-event-grid,
+  .create-count-grid { grid-template-columns: 1fr; }
+  .create-event-option { min-height: auto; }
+  .create-addon-top {
+    flex-direction: column;
+    gap: 2px;
+  }
 }
 
 /* ===================== FOOTER ===================== */
@@ -1964,21 +2222,29 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-/* Android "coming soon" badge — Hero */
-.badge-android-soon {
+/* Google Play button — Hero */
+.btn-googleplay {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  background: transparent;
-  color: var(--secondary);
-  border: 1.5px dashed var(--border);
+  padding: 12px 22px;
+  background: #111;
+  color: #fff;
+  border: none;
   border-radius: 10px;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  text-decoration: none;
   white-space: nowrap;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.btn-googleplay:hover {
+  background: #222;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* App Store button — Navbar */
@@ -1988,12 +2254,18 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   gap: 6px;
 }
 
-/* App Store badge — Footer */
+.footer-store-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* App store badges — Footer */
 .footer-appstore-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 16px;
   padding: 9px 18px;
   background: #111;
   color: #fff;
