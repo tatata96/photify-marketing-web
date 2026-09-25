@@ -35,37 +35,33 @@ const attendeeRanges = [
   { value: '500-plus', label: '500+' },
 ]
 
+const packageFeatures = [
+  'create.package.feature1',
+  'create.package.feature2',
+  'create.package.feature3',
+  'create.package.feature4',
+]
+
 const addOns = [
   {
-    value: 'onsite-support',
-    title: 'Yerinde kurulum ve canlı destek',
-    price: '+₺4.500',
-    description: 'Ekibimiz etkinlik günü alanda olur, QR noktalarını kurar, fotoğrafçıdan yüklemeyi devralır.',
+    value: 'photo-booth',
+    title: 'Photo Booth',
+    description: 'Misafirleriniz için fotoğraf kabiniyle eğlenceli ve anında fotoğraf deneyimi.',
   },
   {
-    value: 'branded-welcome',
-    title: 'Markalı karşılama ekranı ve özel QR',
-    price: '+₺750',
-    description: 'Katılımcı sizin logonuzla karşılanır, QR masa kartı tasarımı dahil.',
+    value: '360-camera',
+    title: '360 Kamera',
+    description: 'Dönen platform üzerinde dinamik ve paylaşılabilir 360° video çekimi.',
   },
   {
-    value: 'photo-sales-watermark',
-    title: 'Fotoğraf satışı ve filigran',
-    price: '+₺1.000',
-    description: 'Katılımcı yüksek çözünürlüklü kareyi satın alana kadar filigranlı görür.',
+    value: 'photographer-service',
+    title: 'Fotoğrafçı Hizmeti',
+    description: 'Etkinliğiniz boyunca profesyonel fotoğrafçı hizmeti.',
   },
   {
-    value: 'extra-storage',
-    title: 'Ek 100 GB depolama',
-    price: '+₺600',
-    description: 'Uzun süren ya da çok kameralı etkinlikler için.',
-  },
-  {
-    value: 'video-face-matching',
-    title: 'Video içinde yüz eşleştirme',
-    price: 'yakında',
-    description: 'Geliştirme aşamasında, 2026 sonunda açılıyor.',
-    disabled: true,
+    value: 'wedding-invitation',
+    title: 'Düğün Davetiyesi',
+    description: 'Etkinliğinize özel dijital davetiye tasarımı.',
   },
 ]
 
@@ -135,7 +131,7 @@ export default function StartForm() {
     try {
       const selectedAddOns = addOns
         .filter(addOn => form.addOns.includes(addOn.value))
-        .map(addOn => `${addOn.title} (${addOn.price})`)
+        .map(addOn => addOn.title)
 
       const response = await fetch('/api/lead', {
         method: 'POST',
@@ -171,6 +167,26 @@ export default function StartForm() {
 
       <div className="container">
         <div className="start-inner create-inner">
+          <aside className="create-package-card" aria-labelledby="create-package-title">
+            <div className="create-package-top">
+              <h2 id="create-package-title">{t('create.package.title')}</h2>
+              <div className="create-package-price" aria-label={`${t('create.package.priceLabel')} ${t('create.package.price')}`}>
+                <span>{t('create.package.priceLabel')}</span>
+                <strong>{t('create.package.price')}</strong>
+              </div>
+              <p>{t('create.package.note')}</p>
+            </div>
+
+            <ul className="create-package-list" aria-label={t('create.package.includes')}>
+              {packageFeatures.map((featureKey) => (
+                <li key={featureKey}>
+                  <span className="create-package-check"><Check /></span>
+                  <span>{t(featureKey)}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
           <div className="start-card create-card">
             {submitted ? (
               <div className="start-success" role="status" aria-live="polite">
@@ -269,7 +285,7 @@ export default function StartForm() {
                 </div>
 
                 <section className="create-addons" aria-labelledby="addons-title">
-                  <h3 id="addons-title">Eklemek istedikleriniz</h3>
+                  <h3 id="addons-title">Ek Hizmetler</h3>
                   <div className="create-addons-list">
                     {addOns.map((addOn) => {
                       const selected = form.addOns.includes(addOn.value)
@@ -277,19 +293,17 @@ export default function StartForm() {
                         <button
                           key={addOn.value}
                           type="button"
-                          className={`create-addon${selected ? ' is-selected' : ''}${addOn.disabled ? ' is-disabled' : ''}`}
-                          onClick={() => !addOn.disabled && toggleAddOn(addOn.value)}
+                          className={`create-addon${selected ? ' is-selected' : ''}`}
+                          onClick={() => toggleAddOn(addOn.value)}
                           role="checkbox"
                           aria-checked={selected}
-                          aria-disabled={addOn.disabled || undefined}
                         >
                           <span className="create-addon-check">
-                            {!addOn.disabled && selected && <Check />}
+                            {selected && <Check />}
                           </span>
                           <span className="create-addon-copy">
                             <span className="create-addon-top">
                               <strong>{addOn.title}</strong>
-                              <span>{addOn.price}</span>
                             </span>
                             <small>{addOn.description}</small>
                           </span>

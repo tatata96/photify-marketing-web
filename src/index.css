@@ -1755,10 +1755,96 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
 
 /* Create event questionnaire */
 .create-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 760px);
+  gap: 24px;
+  align-items: start;
   justify-content: center;
 }
+.create-package-card {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding: 28px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.05);
+}
+.create-package-top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.create-package-top h2 {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--black);
+}
+.create-package-price {
+  display: grid;
+  gap: 3px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.create-package-price span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.create-package-price strong {
+  font-family: var(--font-head);
+  font-size: clamp(2.35rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--black);
+  letter-spacing: 0;
+}
+.create-package-top p {
+  color: var(--secondary);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+.create-package-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+.create-package-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.create-package-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 7px;
+  background: var(--yellow-light);
+  color: var(--black);
+  flex-shrink: 0;
+}
+.create-package-check svg {
+  width: 15px;
+  height: 15px;
+}
 .create-card {
+  align-self: start;
   width: min(100%, 760px);
   border-radius: var(--radius-sm);
 }
@@ -2047,11 +2133,15 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
 @media (max-width: 1024px) {
   .start-inner { grid-template-columns: 1fr; gap: 48px; }
   .start-left { position: static; }
-  .create-inner { grid-template-columns: 1fr; }
+  .create-inner {
+    grid-template-columns: minmax(0, 760px);
+    gap: 22px;
+  }
 }
 @media (max-width: 768px) {
   .start { padding: 110px 0 64px; }
   .start-card { padding: 28px 22px; }
+  .create-package-card { padding: 24px 22px; }
   .start-grid { grid-template-columns: 1fr; gap: 16px; }
   .start-sub { max-width: none; }
   .create-event-grid,
